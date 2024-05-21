@@ -64,7 +64,7 @@ params:
   aboutme:
     title: About Me
     icon: fas fa-user
-    description: This is a demo of the `aafu` theme. It has `light` and `dark` theme.
+    description: Graduated in MIAGE Business Intelligence from the University of Paris Dauphine with a solid background in artificial intelligence from ENSEIRB-MATMECA, I have significant expertise in data analysis, data integration solutions, and data modeling. My professional experience includes roles in data analysis at Ligentec and data engineering at Société Générale where I worked with data engineers and architects on various stages of the data pipeline, including data acquisition, integration, and real-time analysis. I am open to job opportunities in data engineering.
   experience:
     title: Experiences
     icon: fas fa-briefcase
