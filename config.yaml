@@ -4,11 +4,11 @@ build:
   writeStats: true
 params:
   title: Mohamed Kouhou's personal website
-  author: Darshan Baral
+  author: Mohamed Kouhou
   description: Website title
   copyright: >-
-    powered by [hugo](https://gohugo.io/) & deployed on
-    [Cloudflare](https://www.cloudflare.com/)
+    powered by [Hugo](https://gohugo.io/) & deployed on
+    [GitHub Pages](https://pages.github.com/)
   theme:
     mainTheme: dark
     showAttribute: true
