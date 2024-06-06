@@ -64,23 +64,24 @@ params:
   aboutme:
     title: About Me
     icon: fas fa-user
-    description: Graduated in MIAGE Business Intelligence from the University of Paris Dauphine with a solid background in artificial intelligence from ENSEIRB-MATMECA, I have significant expertise in data analysis, data integration solutions, and data modeling. My professional experience includes roles in data analysis at Ligentec and data engineering at Société Générale where I worked with data engineers and architects on various stages of the data pipeline, including data acquisition, integration, and real-time analysis. I am open to job opportunities in data engineering.
+    description: Graduated in MIAGE Business Intelligence from the University of Paris Dauphine with a solid background in artificial intelligence from ENSEIRB-MATMECA, I have significant expertise in data analysis, data integration solutions, and data modeling. My professional experience includes roles in data analysis at Ligentec and data engineering at Société Générale where I worked with data engineers and architects on various stages of the data pipeline, including data acquisition, integration, and real-time analysis.
   experience:
     title: Experiences
     icon: fas fa-briefcase
     list:
-      - position: Job Title
-        dates: 2019 - *Present*
-        company: Company Name
+      - position: Retail Banking Data Apprenticeship
+        dates: Oct 2022 - Sept 2023
+        url: "https://www.societegenerale.com/en"
+        company: Société Générale
         details: |1-
           - Printed from desktop. Sent [emails](#).
               - Called people *using* telephone.
           - Drank water from office cooler.
           - Ate donuts on people's birthdays.
-      - position: Job Title
-        dates: 2018 - 2019
-        url: "#"
-        company: Company Name
+      - position: Data Analytics Internship
+        dates: Feb 2022 - Aug 2022
+        url: "https://www.ligentec.com/"
+        company: Ligentec SA 
   education:
     title: Education
     icon: fas fa-graduation-cap
