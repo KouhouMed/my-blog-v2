@@ -32,26 +32,17 @@ params:
     title: Links
     list:
       - icon: fab fa-linkedin-in
-        url: "#"
+        url: "https://www.linkedin.com/in/mkouhou/"
         title: LinkedIn
       - icon: fab fa-stack-overflow
-        url: "#"
+        url: "https://stackoverflow.com/users/13006431/michael-kohen"
         title: StackOverflow
       - icon: fab fa-github
-        url: "#"
+        url: "https://github.com/KouhouMed"
         title: GitHub
       - icon: fab fa-twitter
-        url: "#"
+        url: "https://x.com/kouhou_mohamed"
         title: Twitter
-      - icon: fab fa-orcid
-        url: "#"
-        title: Orcid
-      - icon: ai ai-google-scholar
-        url: "#"
-        title: Google Scholar
-      - icon: fab fa-researchgate
-        url: "#"
-        title: ResearchGate
   showInAccordion:
     - item: aboutme
       expand: true
