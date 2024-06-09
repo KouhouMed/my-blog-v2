@@ -64,11 +64,11 @@ params:
         dates: Oct 2022 - Sept 2023
         url: "https://www.societegenerale.com/en"
         company: Société Générale
-        details: |1-
-          - Printed from desktop. Sent [emails](#).
-              - Called people *using* telephone.
-          - Drank water from office cooler.
-          - Ate donuts on people's birthdays.
+        #details: |1-
+        #  - Printed from desktop. Sent [emails](#).
+        #      - Called people *using* telephone.
+        #  - Drank water from office cooler.
+        #  - Ate donuts on people's birthdays.
       - position: Data Analytics Internship
         dates: Feb 2022 - Aug 2022
         url: "https://www.ligentec.com/"
@@ -77,55 +77,60 @@ params:
     title: Education
     icon: fas fa-graduation-cap
     list:
-      - degree: Ph.D. in Subject
-        college: University of State-City
-        dates: 2013 - 2018
-        thesis_title: "Effect of humans on other humans: a study of human behavior."
+      - degree: Master's Degree in Business Information Systems and Data Analysis (MIAGE)
+        college: Paris Dauphine University, Paris
+        dates: 2022 - 2023
+        thesis_title: "Survival analysis methods for detecting the risk of financial fragility"
         thesis_url: "#"
-      - degree: M.S. in Subject
-        college: University of State-City
-        dates: 2013 - 2018
-        thesis_title: "Effect of humans on other humans: a study of human behavior."
+      - degree: Exchange Year - Artificial Intelligence
+        college: ENSEIRB-MATMECA, Bordeaux INP, Bordeaux
+        dates: 2021 - 2022
+        #thesis_title: "Effect of humans on other humans: a study of human behavior."
+        #thesis_url: "#"
+      - degree: Data Engineer Degree
+        college: National Institute of Posts and Telecommunications (INPT), Rabat
+        dates: 2019 - 2021
+      - degree: Classes Préparatoires aux Grandes Écoles (CPGE) (MP)
+        college: Lycée Reda Slaoui, Agadir
+        dates: 2017 - 2019
+        thesis_title: "Convolutional neural networks for automatic driving of an autonomous vehicle"
         thesis_url: "#"
-      - degree: B.S. in Subject
-        college: University of State-City
-        dates: 2004 - 2009
-  publication:
-    title: Publications
-    icon: fas fa-book
-    format:
-      - date
-      - title
-      - authors
-      - journal
-    types:
-      - Journal Articles
-      - Proceedings
-    list:
-      - title: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        authors: "F Last, F Second, P secondary"
-        date: "2018"
-        journal: "Journal of Field 52 (16), 9033-9044"
-        url: "#"
-        type: Journal Articles
-      - title: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        authors: "F Last, F Second, P secondary"
-        date: "2018"
-        journal: "Journal of Field 52 (16), 9033-9044"
-        url: "#"
-        type: Journal Articles
-      - title: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        authors: "F Last, F Second, P secondary"
-        date: "2018"
-        journal: "Journal of Field 52 (16), 9033-9044"
-        url: "#"
-        type: Proceedings
+#  publication:
+#    title: Publications
+#    icon: fas fa-book
+#    format:
+#      - date
+#      - title
+#      - authors
+#      - journal
+#    types:
+#      - Journal Articles
+#      - Proceedings
+#    list:
+#      - title: >-
+#          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+#          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#        authors: "F Last, F Second, P secondary"
+#        date: "2018"
+#        journal: "Journal of Field 52 (16), 9033-9044"
+#        url: "#"
+#        type: Journal Articles
+#      - title: >-
+#          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+#          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#        authors: "F Last, F Second, P secondary"
+#        date: "2018"
+#        journal: "Journal of Field 52 (16), 9033-9044"
+#        url: "#"
+#        type: Journal Articles
+#      - title: >-
+#          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+#          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#        authors: "F Last, F Second, P secondary"
+#        date: "2018"
+#        journal: "Journal of Field 52 (16), 9033-9044"
+#        url: "#"
+#        type: Proceedings
   project:
     title: Projects
     icon: fas fa-project-diagram
@@ -157,6 +162,7 @@ params:
     title: Hobbies
     icon: fas fa-gamepad
     list:
+      - hobby: Running
+      - hobby: Reading
+      - hobby: Video Games
       - hobby: Cooking
-      - hobby: Hiking
-      - hobby: Baking
