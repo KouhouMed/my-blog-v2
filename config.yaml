@@ -135,16 +135,7 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
-      - title: Project 1
-        url: "#"
-        description: Description of the project
-      - title: Project 2
-        url: "#"
-        description: Description of the project
-      - title: Project 3
-        url: "#"
-        description: Description of the project
-      - title: Project 4
+      - title: Connected Components Search in a Graph
         url: "#"
         description: Description of the project
   skill:
