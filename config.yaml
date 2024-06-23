@@ -7,7 +7,7 @@ params:
   author: Mohamed Kouhou
   description: Website title
   copyright: >-
-    powered by [Hugo](https://gohugo.io/) & deployed on
+    Powered by [Hugo](https://gohugo.io/) & deployed on
     [GitHub Pages](https://pages.github.com/)
   theme:
     mainTheme: dark
@@ -137,18 +137,41 @@ params:
     list:
       - title: Connected Components Search in a Graph
         url: "#"
-        description: Description of the project
+        description: Implementation of the "CCF Fast and scalable connected component computation in MapReduce" algorithm with PySpark and DataBricks on GCP using Google Web Graph data.
+      - title: SSL Junior ~ Enseirb IA
+        url: "#"
+        description: Development of an AI to pilot robots for an SSL Socker Junior team for the Robocup competition. Use of DDPG (reinforcement learning) architecture and a simulator for robot training and strategy.
+      - title: Web scraping project for Avito.ma
+        url: "#"
+        description: Extraction of ad data from the avito.ma website with BeautifulSoup, cleaning and transformation of this data, creation of an analytical study of prices and highlighting of real estate price trends, presentation on dashboards.
+      - title: Convolutional Neural Network for Self-driving Cars
+        url: "#"
+        description: Training a convolutional neural network to drive an autonomous car
+      - title: Soccer player performance analysis
+        url: "#"
+        description: Comprehensive BI project for analyzing soccer player performance
+      - title: Disaster detection on Twitter
+        url: "#"
+        description: NLP for sentiment analysis of tweets collected from a Twitter API. The aim was to detect whether a tweet was about a disaster or not.
   skill:
     title: Skills
     panelId: skill-panel
     icon: fas fa-cogs
     list:
-      - skill: "Skill 1, Skill 2"
+      - skill: Python
         skillrating: 90
-      - skill: Skill 3
+      - skill: R
+        skillrating: 70
+      - skill: SQL
         skillrating: 80
-      - skill: Skill 4
-        skillrating: 50
+      - skill: Java
+        skillrating: 60
+      - skill: PySpark 
+        skillrating: 60
+      - skill: GCP
+        skillrating: 60
+      - skill: Power BI
+        skillrating: 80
   hobby:
     title: Hobbies
     icon: fas fa-gamepad
