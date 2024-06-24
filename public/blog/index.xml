@@ -16,6 +16,13 @@
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>What is Data Science ?</title>
+      <link>https://aafu.pages.dev/blog/ds/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://aafu.pages.dev/blog/ds/</guid>
+      <description>“You can have data without information, but you cannot have information without data.” – Daniel Keys Moran&#xA;Data science is one of the most debated topics in the industries these days. Its popularity has grown over the years, and companies have started implementing data science techniques to grow their business and increase customer satisfaction. According to a study conducted in 2013, 90% of the world&amp;rsquo;s data has been produced within the previous two years.</description>
+    </item>
+    <item>
       <title>luctus enim ultricies auctor pulvinar nam etiam</title>
       <link>https://aafu.pages.dev/blog/post_3/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>

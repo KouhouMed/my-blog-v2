@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>Mohamed Kouhou&#39;s personal website</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Mohamed Kouhou" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.125.7" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.642be2b73b39fb2ab356ac5779cf1a9d3a16c046c1461b0783643435f3f0f092.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://aafu.pages.dev/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">What is Data Science ?</h1>
+  <p class="mb-1">November 5, 2019</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <blockquote>
+<p>“You can have data without information, but you cannot have information without data.” – <strong>Daniel Keys Moran</strong></p>
+</blockquote>
+<p>Data science is one of the most debated topics in the industries these days. Its popularity has grown over the years, and companies have started implementing data science techniques to grow their business and increase customer satisfaction. According to a <a href="https://www.sciencedaily.com/releases/2013/05/130522085217.htm" target="_blank">study</a> conducted in 2013, 90% of the world&rsquo;s data has been produced within the previous two years. In 2020, the global amount of data is projected to reach 59 zettabytes. Given the massive amount of data that is being created every second, people in almost all industries have become concerned as to how to make use of all this data being produced.
+This is when Data Science comes into play.</p>
+<h2 id="what-is-data-science-">What is Data Science ?</h2>
+<p>Data science is the domain of study that deals with vast volumes of data using modern tools and techniques to find unseen patterns, derive meaningful information, and make business decisions. Data science uses complex machine learning algorithms to build predictive models.</p>
+<blockquote>
+<p>&ldquo;<strong>Data Scientist (n.)</strong>: Person who is better at statistics than any software engineer and better at software engineering than any statistician.&rdquo; – <strong>Josh Wells</strong></p>
+</blockquote>
+  <center><img src="https://miro.medium.com/max/1986/1*mgXvzNcwfpnBawI6XTkVRg.png" width="530" height="500" style="width: 100%;
+  height: auto"/></center>
+<p>Data science combines the scientific method, math and statistics, specialized programming, advanced analytics, AI, and even storytelling to uncover and explain the business insights buried in data.It envolves preparing raw data to make it ready for processing, performing data analysis, and presenting the results to reveal patterns abd enable stakeholders to extract useful insights.</p>
+<p>Data preparation envolves cleaning, aggregating, and manipulating data in a way that makes it suitable for the desired type of processing. As for analysis, it is requires algorithms and AI models to explore the data and extract patterns. Decisions will be taken based on the predictions that have been with the models.</p>
+<p>In order for these models to be able to predict reliably, they have to be optimized through training. And the accuracy of the predictions must be validated through scientifically designed tests and experiments.</p>
+<h2 id="what-are-the-prerequisites-and-skills-for-data-science-">What are the prerequisites and skills for Data Science ?</h2>
+<p>a data scientist must be able to do the following tasks :</p>
+<ul>
+<li>Apply mathematics, statistics, and the scientific method</li>
+<li>Use a variety of tools and techniques for evaluating and preparing data (SQL, data mining, data integration methods&hellip;)</li>
+<li>Extract insights from data using predictive analytics and artificial intelligence (AI), including machine learning and deep learning models</li>
+<li>Write applications that automate data processing and calculations</li>
+<li>Tell stories that clearly depict the results of the analysis process (this is usually done through visualization and other techniques)</li>
+<li>Explain how these results can be used to solve business problems</li>
+</ul>
+<h4 id="technical-prerequisites-for-data-science">Technical prerequisites for Data Science</h4>
+<p>Here are some technical demands you should know before setting of a data science journey :</p>
+<ol>
+<li>
+<p><strong>Mathematics</strong> : data science requires some basic knowledge in certain mathematical concepts such as <strong>calculus</strong>, <strong>linear algebra</strong>, <strong>probability</strong>, <strong>statistics</strong>, <strong>information theory</strong>&hellip; data scientists should be familiar with these concepts in order to be able to fully understand the magic behind statistical and machine learning models, and thus be capable of adapting them to their needs.</p>
+</li>
+<li>
+<p><strong>Programming</strong> : some programming skills are needed to execute successful data science projects. It is not required to be a hardcore programmer to help analyze widespread parts of data, to write quotes efficiently to explain the problem area and work with big data. Data science works on programming tools like Python and R. These concepts will help the candidate to journey a long way into the expertise of data science.</p>
+</li>
+<li>
+<p><strong>Databases</strong> : they are an essential component of data science. Data scientists need to understand how databases work, how to manage them, and how to extract data from them.</p>
+</li>
+<li>
+<p><strong>Machine learning</strong> : it is one of the most fundamental concepts of data science. Data Scientists need to have a solid grasp on ML in addition to basic knowledge of statistics.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Skills</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Analysis</td>
+<td>R, Python, Statistics</td>
+<td>SAS, Jupyter, R Studio, MATLAB,  Excel, RapidMiner</td>
+</tr>
+<tr>
+<td>Data Warehousing</td>
+<td>ETL, SQL, Hadoop,  Apache Spark</td>
+<td>Informatica/ Talend, AWS Redshift</td>
+</tr>
+<tr>
+<td>Data Visualization</td>
+<td>R, Python libraries</td>
+<td>Jupyter, Tableau, Cognos, RAW</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td>Python, Algebra, Machine  learning algorithms, Statistics</td>
+<td>Spark MLib, Mahout, Azure ML studio</td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img src="https://datascience.foundation/img/pdf_images/range_of_technologies_brands_in_data_science.png" alt="ds brands" style="width:100%">
+  <figcaption>Range of Technologies Brands in Data Science</figcaption>
+</figure>
+<h2 id="data-science-lifecycle">Data Science Lifecycle</h2>
+<figure>
+  <img src="https://i.ibb.co/YWKMftr/lifecycle.jpg" alt="ds lifecycle" style="width:100%">
+  <figcaption>Data Science Lifecycle</figcaption>
+</figure>
+<p>Data science projects are conducted through several processes, so it is important to have a general structure to follow. There are no rules or stricts procedures to follow in a data science project. However, the following lifecycle outlines the major stages that projects typically execute, often iteratively:</p>
+<ol>
+<li><strong>Business Understanding</strong> : This is the first step of all data science projects. It includes two main tasks :</li>
+</ol>
+<ul>
+<li><em>Define objectives</em>: Work with your customer and other stakeholders to understand and identify the business problems. Formulate questions that define the business goals that the data science techniques can target.</li>
+<li><em>Identify data sources</em>: Find the relevant data that helps you answer the questions that define the objectives of the project.</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>Data Collection</strong> : It is not an easy process. It involves so many tasks such as identifying your data requirements, deciding on a method of data collection, and finally organizing a data collection plan that synthesizes the most important aspects of your program.</p>
+</li>
+<li>
+<p><strong>Data Preparation</strong> : This step is also known as <strong>Data Cleaning</strong> or <strong>Data Wrangling</strong>. It includes steps like selecting the relevant data, integrating the data by merging the data sets, cleaning it, handling the missing values by either removing them or imputing them with relevant data, treating erroneous data by removing them, also check for outliers and handle them. Constructing new data, derive new features from existing ones by using the feature engineering. Format the data into the desired structure, remove unwanted columns and features. Data preparation is the most time consuming as it takes up to <strong>80%</strong> of the overall project time, yet it’s the most important step in the entire life cycle.</p>
+</li>
+<li>
+<p><strong>Exploratory Data Analysis (EDA)</strong> : This is not a formal process with a strict set of rules. It is rather a mindset that incites you to analyze and investigate your data sets and summarize their main characteristics, often employing data visualization methods. It helps you to figure out the best way to manipulate your data. In this stage, you may want to do the following tasks :</p>
+</li>
+</ol>
+<ul>
+<li>Generate questions about your data</li>
+<li>Search for answers by visualising, transforming, and modelling your data</li>
+<li>Use what you learn to refine your questions and/or generate new questions</li>
+</ul>
+<ol start="5">
+<li>
+<p><strong>Modeling</strong> : Data modeling is the process of creating a visual representation of either a whole information system or parts of it to communicate connections between data points and structures. The goal is to illustrate the types of data used and stored within the system, the relationships among these data types, the ways the data can be grouped and organized and its formats and attributes.Data modeling employs standardized schemas and formal techniques. This provides a common, consistent, and predictable way of defining and managing data resources across an organization, or even beyond.</p>
+</li>
+<li>
+<p><strong>Model Evaluation</strong> : In the end we need to evaluate the model by measuring the accuracy (How well the model performs i.e. does it describe the data accurately) and relevance (Does it answer the original question that is set out to answer). We also need to make sure there is a correct balance between performance and generalizability, which means the model created should not be biased and should be a generalized model.</p>
+</li>
+<li>
+<p><strong>Model Deployment</strong> : In order to start using a model for practical decision-making, it needs to be effectively deployed into production. Depending on the requirements, the deployment phase can be as simple as generating a report or as complex as implementing a repeatable data science process. In many cases, it will be the customer, not the data analyst, who will carry out the deployment steps. For example, a credit card company may want to deploy a trained model or set of models (e.g., neural networks, meta-learner) to quickly identify transactions, which have a high probability of being fraudulent. However, even if the analyst will not carry out the deployment effort it is important for the customer to understand up front what actions will need to be carried out in order to actually make use of the created models.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>In the end, we won&rsquo;t be wrong to say that Data Science is driving the future of almost all industries as it is the fastest growing discipline in computer science and IT with all its active community and the new tools being developped continuously.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/post_3/"
+      title="luctus enim ultricies auctor pulvinar nam etiam"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/markdown_syntax/"
+      title="Demo Page"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; deployed on <a href="https://pages.github.com/">GitHub Pages</a></p>
+  <p >
+    
+  </p>
+</footer>
+
+    
+  </body>
+</html>
