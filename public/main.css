@@ -1494,3 +1494,9 @@ blockquote {
     grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
 }
+code.has-jax {
+  -webkit-font-smoothing: antialiased;
+  background: inherit !important;
+  border: none !important;
+  font-size: 100%;
+}
