@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto dark"><head>
+<html lang="en-us" class="m-auto dark"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>Mohamed Kouhou&#39;s personal website</title>
 
 <meta name="theme-color" content="" />
@@ -29,9 +29,7 @@
 
 
 
-
-
-<link href="/main.min.642be2b73b39fb2ab356ac5779cf1a9d3a16c046c1461b0783643435f3f0f092.css" rel="stylesheet" />
+<link href="/main.css" rel="stylesheet" />
 
 
   
@@ -75,6 +73,28 @@
       }
     };
   </script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
     
@@ -82,7 +102,7 @@
   class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
 >
   <div>
-    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://aafu.pages.dev/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="http://localhost:1313/">Home</a>    
     <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
   </div>
   
@@ -123,33 +143,33 @@
         onclick="expandAccordion(this)"
         class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
       ></i>
-      <a href="/blog/markdown_syntax/"
-        ><h2 class="accordion m-0">Demo Page</h2></a
+      <a href="/blog/supervised-algos-with-r-2/"
+        ><h2 class="accordion m-0">Supervised Learning algorithms with R (part 2)</h2></a
       >
     </div>
     <div
       id="panel-item-0"
       class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
     >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 19, 2022</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 3 minutes</p>
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">January 7, 2021</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
  
 
 <p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
   Categories: 
   <a
     class="metadata-tags hover:no-underline"
-    href="/categories/themes"
+    href="/categories/machine-learning"
     title="categories"
   >
-    #themes</a>
+    #machine learning</a>
   
   <a
     class="metadata-tags hover:no-underline"
-    href="/categories/syntax"
+    href="/categories/data-science"
     title="categories"
   >
-    #syntax</a>
+    #data science</a>
   
 </p>
 
@@ -159,31 +179,244 @@
   Tags: 
   <a
     class="metadata-tags hover:no-underline"
-    href="/tags/markdown"
+    href="/tags/machine-learning"
     title="tags"
   >
-    #markdown</a>
+    #machine learning</a>
   
   <a
     class="metadata-tags hover:no-underline"
-    href="/tags/css"
+    href="/tags/data-science"
     title="tags"
   >
-    #css</a>
+    #data science</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/supervised-algos-with-r/"
+        ><h2 class="accordion m-0">Supervised Learning algorithms with R (part 1)</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-1"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">January 5, 2021</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 11 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/machine-learning"
+    title="categories"
+  >
+    #machine learning</a>
   
   <a
     class="metadata-tags hover:no-underline"
-    href="/tags/html"
+    href="/categories/data-science"
+    title="categories"
+  >
+    #data science</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/machine-learning"
     title="tags"
   >
-    #html</a>
+    #machine learning</a>
   
   <a
     class="metadata-tags hover:no-underline"
-    href="/tags/themes"
+    href="/tags/data-science"
     title="tags"
   >
-    #themes</a>
+    #data science</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/ml/"
+        ><h2 class="accordion m-0">What is machine learning ?</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-2"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">December 5, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/machine-learning"
+    title="categories"
+  >
+    #machine learning</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/data-science"
+    title="categories"
+  >
+    #data science</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/machine-learning"
+    title="tags"
+  >
+    #machine learning</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/data-science"
+    title="tags"
+  >
+    #data science</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/blockchain/"
+        ><h2 class="accordion m-0">What is Blockchain Technology?</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-3"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 5, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 1 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/blockchain"
+    title="categories"
+  >
+    #Blockchain</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/machine-learning"
+    title="tags"
+  >
+    #machine learning</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/blockchain"
+    title="tags"
+  >
+    #Blockchain</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/nlp/"
+        ><h2 class="accordion m-0">Natural Language Processing (NLP)</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-4"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">September 5, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 2 minutes</p>
+ 
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/machine-learning"
+    title="tags"
+  >
+    #machine learning</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/data-science"
+    title="tags"
+  >
+    #data science</a>
   
 </p>
 
@@ -205,7 +438,7 @@
       >
     </div>
     <div
-      id="panel-item-1"
+      id="panel-item-5"
       class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
     >
       <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 5, 2019</p>
@@ -254,76 +487,6 @@
     title="tags"
   >
     #artificial intelligence</a>
-  
-</p>
-
-
-</div>
-    </div>
-  </div>
-  
-  <div class="">
-    <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
-    >
-      <i
-        onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
-      ></i>
-      <a href="/blog/post_3/"
-        ><h2 class="accordion m-0">luctus enim ultricies auctor pulvinar nam etiam</h2></a
-      >
-    </div>
-    <div
-      id="panel-item-2"
-      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
-    >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">January 6, 2018</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 2 minutes</p>
- 
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
-  Categories: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/categories/diam-aliqua"
-    title="categories"
-  >
-    #diam aliqua</a>
-  
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/categories/fringilla"
-    title="categories"
-  >
-    #fringilla</a>
-  
-</p>
-
-
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
-  Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/mollis-urna"
-    title="tags"
-  >
-    #mollis urna</a>
-  
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/notes"
-    title="tags"
-  >
-    #notes</a>
-  
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/laoreet"
-    title="tags"
-  >
-    #laoreet</a>
   
 </p>
 

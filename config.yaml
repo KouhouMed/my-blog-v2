@@ -2,6 +2,10 @@ baseURL: https://aafu.pages.dev/
 languageCode: en-us
 build:
   writeStats: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 params:
   title: Mohamed Kouhou's personal website
   author: Mohamed Kouhou
@@ -22,10 +26,7 @@ params:
               <link rel="manifest" href="site.webmanifest">
               <link rel="mask-icon" href="safari-pinned-tab.svg" color="#252627">
               <link rel="shortcut icon" href="favicon.ico">
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
+
 
   profile:
     name: "Mohamed Kouhou"

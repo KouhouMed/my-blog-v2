@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto dark"><head>
+<html lang="en-us" class="m-auto dark"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>Mohamed Kouhou&#39;s personal website</title>
 
 <meta name="theme-color" content="" />
@@ -29,9 +29,7 @@
 
 
 
-
-
-<link href="/main.min.642be2b73b39fb2ab356ac5779cf1a9d3a16c046c1461b0783643435f3f0f092.css" rel="stylesheet" />
+<link href="/main.css" rel="stylesheet" />
 
 
   
@@ -75,6 +73,28 @@
       }
     };
   </script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
     
@@ -82,7 +102,7 @@
   class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
 >
   <div>
-    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://aafu.pages.dev/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="http://localhost:1313/">Home</a>    
     <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
   </div>
   

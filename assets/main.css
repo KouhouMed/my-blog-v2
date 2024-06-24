@@ -85,3 +85,9 @@
     @apply bg-gray-300 pointer-events-none text-gray-800;
   }
 }
+code.has-jax {
+  -webkit-font-smoothing: antialiased;
+  background: inherit !important;
+  border: none !important;
+  font-size: 100%;
+}
