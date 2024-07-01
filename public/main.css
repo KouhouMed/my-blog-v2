@@ -1187,6 +1187,9 @@ blockquote {
 .flex {
   display: flex !important;
 }
+.table {
+  display: table !important;
+}
 .grid {
   display: grid !important;
 }

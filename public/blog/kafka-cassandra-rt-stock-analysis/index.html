@@ -133,71 +133,109 @@
 
     
     <main class="grow">
-<div class="prose dark:prose-invert max-w-none">
-  <h1 class="standard font-italic">
-    #Blockchain</h1>
-  
-  <div class="">
-    <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active"
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Building a Real-Time Stock Market Data Pipeline with Apache Kafka and Cassandra</h1>
+  <p class="mb-1">July 1, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="building-a-real-time-stock-market-data-pipeline-with-apache-kafka-and-cassandra">Building a Real-Time Stock Market Data Pipeline with Apache Kafka and Cassandra</h1>
+<p>In today&rsquo;s fast-paced financial markets, the ability to process and analyze real-time data is crucial. I recently embarked on a project to build a real-time stock market data pipeline using Apache Kafka and Cassandra. This project not only enhanced my understanding of distributed systems but also provided valuable insights into handling high-volume, time-sensitive data.</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>The goal was to create a system that could:</p>
+<ol>
+<li>Continuously stream stock market data</li>
+<li>Process this data in real-time</li>
+<li>Store the processed data for further analysis</li>
+</ol>
+<p>To achieve this, I chose Apache Kafka for data streaming and Apache Cassandra for data storage, with Python as the primary programming language.</p>
+<h2 id="the-architecture">The Architecture</h2>
+<p>The pipeline consists of three main components:</p>
+<ol>
+<li><strong>Kafka Producer</strong>: Reads stock data from a CSV file and streams it to a Kafka topic.</li>
+<li><strong>Kafka Consumer</strong>: Consumes data from the Kafka topic and writes it to Cassandra.</li>
+<li><strong>Cassandra Database</strong>: Stores the processed stock market data.</li>
+</ol>
+<h2 id="implementation-details">Implementation Details</h2>
+<h3 id="kafka-producer-producerpy">Kafka Producer (producer.py)</h3>
+<p>The producer script does the following:</p>
+<ul>
+<li>Connects to a Kafka broker</li>
+<li>Reads stock data from a CSV file using pandas</li>
+<li>Continuously samples and sends data to a Kafka topic</li>
+</ul>
+<p>Key features:</p>
+<ul>
+<li>Error handling for producer initialization and data sending</li>
+<li>Configurable data sending rate</li>
+</ul>
+<h3 id="kafka-consumer-consumerpy">Kafka Consumer (consumer.py)</h3>
+<p>The consumer script:</p>
+<ul>
+<li>Connects to both Kafka and Cassandra</li>
+<li>Creates necessary Cassandra keyspace and table if they don&rsquo;t exist</li>
+<li>Consumes messages from Kafka and inserts them into Cassandra</li>
+</ul>
+<p>Key features:</p>
+<ul>
+<li>Error handling for consumer initialization, Cassandra setup, and data insertion</li>
+<li>Dynamic JSON parsing for flexible data structure</li>
+</ul>
+<h3 id="kafka-and-cassandra-setup-commandssh">Kafka and Cassandra Setup (commands.sh)</h3>
+<p>This script provides step-by-step instructions for:</p>
+<ul>
+<li>Setting up Kafka on an EC2 instance</li>
+<li>Installing necessary dependencies</li>
+<li>Configuring Kafka for public access</li>
+<li>Creating Kafka topics</li>
+<li>Testing the setup with console producer and consumer</li>
+</ul>
+<h2 id="challenges-and-learnings">Challenges and Learnings</h2>
+<ol>
+<li>
+<p><strong>Scalability</strong>: Configuring Kafka and Cassandra to handle high volumes of data was challenging but crucial for real-world applicability.</p>
+</li>
+<li>
+<p><strong>Data Consistency</strong>: Ensuring that data remained consistent across the pipeline required careful error handling and transaction management.</p>
+</li>
+<li>
+<p><strong>Performance Tuning</strong>: Optimizing the performance of both Kafka and Cassandra required deep dives into their configuration options.</p>
+</li>
+<li>
+<p><strong>Cloud Deployment</strong>: Setting up the system on EC2 provided valuable experience in cloud-based distributed systems.</p>
+</li>
+</ol>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<ol>
+<li>Implement real-time analytics on the streaming data</li>
+<li>Add a web interface for real-time visualization</li>
+<li>Incorporate machine learning models for predictive analysis</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Building this real-time stock market data pipeline was an exciting journey into the world of big data and distributed systems. It showcased the power of Apache Kafka for real-time data streaming and Cassandra for scalable storage. This project lays the groundwork for more advanced financial data analysis and could be extended to handle various types of time-series data.</p>
+<p>The complete code and setup instructions are available on my <a href="https://github.com/KouhouMed/stock-data-real-time-data-pipeline">GitHub repository</a>. Feel free to check it out, and don&rsquo;t hesitate to reach out if you have any questions or suggestions!</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/capm-analysis-app/"
+      title="Unveiling Market Insights: My CAPM Stock Analysis App"
     >
-      <i
-        onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
-      ></i>
-      <a href="/blog/blockchain/"
-        ><h2 class="accordion m-0">What is Blockchain Technology?</h2></a
-      >
-    </div>
-    <div
-      id="panel-item-0"
-      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
-    >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 5, 2020</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 1 minutes</p>
- 
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
-  Categories: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/categories/blockchain"
-    title="categories"
-  >
-    #Blockchain</a>
-  
-</p>
-
-
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
-  Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/machine-learning"
-    title="tags"
-  >
-    #machine learning</a>
-  
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/blockchain"
-    title="tags"
-  >
-    #Blockchain</a>
-  
-</p>
-
-
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
 </div>
-    </div>
-  </div>
-  
-</div>
-<script src="/js/accordion.js"></script>
-<div class="mt-4 d-flex justify-content-center">
-  
-</div>
+
 
     </main>
     
