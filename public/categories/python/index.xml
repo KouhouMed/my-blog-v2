@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>https://kouhoumed.com/categories/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://kouhoumed.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatSage: a multi-model chatbot application</title>
+      <link>https://kouhoumed.com/blog/chatsage/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kouhoumed.com/blog/chatsage/</guid>
+      <description>ChatSage GitHub repository&#xA;ChatSage is a multi-model chatbot application that allows users to interact with various language models including GPT-3, GPT-4, Claude, and custom models.&#xA;Features Support for multiple language models (GPT-3, GPT-4, Claude, LLaMA, and custom models) Web-based chat interface API endpoints for chat functionality Configurable settings for different environments Basic rate limiting Chat history management Installation Clone the repository:&#xA;git clone https://github.com/KouhouMed/chatsage.git&#xD;cd chatsage Create a virtual environment and activate it:</description>
+    </item>
+  </channel>
+</rss>
