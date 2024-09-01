@@ -6,6 +6,18 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+# Add this section to enable processing of image resources
+imaging:
+  resampleFilter: lanczos
+  quality: 75
+  anchor: smart
+
+# Add this to specify where Hugo should look for image files
+staticDir:
+  - static
+  - images
+
 params:
   title: Mohamed Kouhou's personal website
   author: Mohamed Kouhou

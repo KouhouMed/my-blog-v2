@@ -8,6 +8,11 @@ categories = ["python", "machine learning", "data science"]
 
 # ChatSage
 
+<div align="center">
+  <img src="/chatsage-logo.svg" alt="ChatSage Logo" width="250"/>
+</div>
+
+
 [GitHub repository](https://github.com/KouhouMed/ChatSage)
 
 
