@@ -30,6 +30,10 @@ ChatSage is a multi-model chatbot application that allows users to interact with
 - Basic rate limiting
 - Chat history management
 
+<div align="center">
+  <img src="/chatsage-ui.png" alt="ChatSage Logo"/>
+</div>
+
 ## Installation
 
 1. Clone the repository:
