@@ -152,6 +152,9 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
+      - title: ChatSage
+        url: "https://kouhoumed.com/blog/chatsage/"
+        description: ChatSage is a multi-model chatbot application that allows users to interact with various language models including GPT-3, GPT-4, Claude, and custom models.
       - title: Connected Components Search in a Graph
         url: "#"
         description: Implementation of the "CCF Fast and scalable connected component computation in MapReduce" algorithm with PySpark and DataBricks on GCP using Google Web Graph data.

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cassandra on </title>
-    <link>http://localhost:1313/tags/cassandra/</link>
+    <link>https://kouhoumed.com/tags/cassandra/</link>
     <description>Recent content in Cassandra on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 01 Jul 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kouhoumed.com/tags/cassandra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Real-Time Stock Market Data Pipeline with Apache Kafka and Cassandra</title>
-      <link>http://localhost:1313/blog/kafka-cassandra-rt-stock-analysis/</link>
+      <link>https://kouhoumed.com/blog/kafka-cassandra-rt-stock-analysis/</link>
       <pubDate>Mon, 01 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/kafka-cassandra-rt-stock-analysis/</guid>
+      <guid>https://kouhoumed.com/blog/kafka-cassandra-rt-stock-analysis/</guid>
       <description>Building a Real-Time Stock Market Data Pipeline with Apache Kafka and Cassandra In today&amp;rsquo;s fast-paced financial markets, the ability to process and analyze real-time data is crucial. I recently embarked on a project to build a real-time stock market data pipeline using Apache Kafka and Cassandra. This project not only enhanced my understanding of distributed systems but also provided valuable insights into handling high-volume, time-sensitive data.&#xA;Project Overview The goal was to create a system that could:</description>
     </item>
   </channel>
