@@ -155,6 +155,9 @@ params:
       - title: ChatSage
         url: "https://kouhoumed.com/blog/chatsage/"
         description: ChatSage is a multi-model chatbot application that allows users to interact with various language models including GPT-3, GPT-4, Claude, and custom models.
+      - title: CAPM Stock Analysis App
+        url: "https://kouhoumed.com/blog/capm-analysis-app/"
+        description: This app is designed to make CAPM analysis accessible and interactive. Built with Python and Streamlit, it focuses on French stocks from the CAC 40 index, providing a user-friendly interface for investors and financial analysts.
       - title: Connected Components Search in a Graph
         url: "#"
         description: Implementation of the "CCF Fast and scalable connected component computation in MapReduce" algorithm with PySpark and DataBricks on GCP using Google Web Graph data.
@@ -167,9 +170,6 @@ params:
       - title: Convolutional Neural Network for Self-driving Cars
         url: "#"
         description: Training a convolutional neural network to drive an autonomous car
-      - title: Soccer player performance analysis
-        url: "#"
-        description: Comprehensive BI project for analyzing soccer player performance
       - title: Disaster detection on Twitter
         url: "#"
         description: NLP for sentiment analysis of tweets collected from a Twitter API. The aim was to detect whether a tweet was about a disaster or not.
