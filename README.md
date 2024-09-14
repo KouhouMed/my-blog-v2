@@ -1,4 +1,7 @@
+[![Deploy Hugo site to Pages](https://github.com/KouhouMed/my-blog-v2/actions/workflows/hugo.yaml/badge.svg)](https://github.com/KouhouMed/my-blog-v2/actions/workflows/hugo.yaml)
+
 # aafu Theme
+
 
 The aafu Theme is a responsive portfolio with blog. [Click here](https://aafu.pages.dev/) for live demo.
 
