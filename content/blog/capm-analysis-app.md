@@ -9,6 +9,12 @@ tags = ["Finance", "Python", "Data Analysis", "Web App"]
 
 In the ever-evolving world of finance, making informed investment decisions is crucial. Today, I'm excited to share a tool I've developed that brings the power of the Capital Asset Pricing Model (CAPM) to your fingertips: the CAPM Stock Analysis App.
 
+   <iframe
+     src="https://capm-analysis-app-j4ekb6bgyrc7vlfvwjret6.streamlit.app/?embed=true"
+     height="600"
+     style="width:100%;border:none;"
+   ></iframe>
+
 ## What is CAPM?
 
 Before diving into the app, let's briefly discuss CAPM. The Capital Asset Pricing Model is a fundamental concept in modern financial theory. It helps determine the theoretical appropriate required rate of return of an asset, given that asset's risk in relation to the market.
