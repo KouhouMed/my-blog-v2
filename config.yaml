@@ -2,10 +2,12 @@ baseURL: https://kouhoumed.com/
 languageCode: en-us
 build:
   writeStats: true
+  useResourceCacheWhen: always
 markup:
   goldmark:
     renderer:
       unsafe: true
+
 
 # Add this section to enable processing of image resources
 imaging:
@@ -42,8 +44,8 @@ params:
 
   profile:
     name: "Mohamed Kouhou"
-    tagline: Data Engineer
-    location: "Paris, France"
+    tagline: Database Administrator
+    location: "Sophia Antipolis, Côte d'Azure, France"
     photo: profile.jpg
   social:
     title: Links
