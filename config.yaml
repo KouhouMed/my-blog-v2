@@ -2,7 +2,7 @@ baseURL: https://kouhoumed.com/
 languageCode: en-us
 build:
   writeStats: true
-  useResourceCacheWhen: always
+  useResourceCacheWhen: fallback
 markup:
   goldmark:
     renderer:
