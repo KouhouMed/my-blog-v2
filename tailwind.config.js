@@ -1,4 +1,5 @@
 const theme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   important: true,
@@ -11,13 +12,30 @@ module.exports = {
     "./content/**/*.html",
   ],
   safelist: ['pagination', 'page-item'],
-  darkMode: "class", // 'media' or 'class'
+  darkMode: "class", // Keeping this to avoid breaking existing dark: classes immediately, but we will override defaults
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
+      },
+      colors: {
+        primary: colors.sky[400], // Brighter for dark mode
+        secondary: colors.emerald[400],
+        // Semantic colors for Dark Mode only
+        bg: colors.slate[950],      // Main background (very dark)
+        surface: colors.slate[900],  // Card background
+        surfaceHighlight: colors.slate[800], // Hover states
+        text: {
+          main: colors.slate[100],
+          muted: colors.slate[400],
+          inverse: colors.slate[900],
+        },
+        border: colors.slate[800],
+      },
       backgroundColor: (theme) => ({
-        darkest: theme(`colors.stone.900`),
-        darker: theme(`colors.stone.800`),
-        dark: theme(`colors.stone.700`),
+        ...theme('colors'),
       }),
       typography: (theme) => ({
         DEFAULT: {
@@ -25,15 +43,15 @@ module.exports = {
             "code::before": false,
             "code::after": false,
             a: {
-              color: theme(`colors.blue.600`),
-              textDecoration: "none",
+              color: theme(`colors.sky.600`),
+              textDecoration: "underline",
+              textDecorationStyle: "dotted",
               "&:hover": {
-                color: theme(`colors.blue.800`),
-                textDecoration: "underline",
+                color: theme(`colors.sky.800`),
               },
             },
             pre: {
-              backgroundColor: theme(`colors.stone.200`),
+              backgroundColor: theme(`colors.slate.200`),
               color: theme(`colors.gray.700`),
             },
             code: { color: theme(`colors.gray.700`) },
@@ -41,24 +59,29 @@ module.exports = {
         },
         invert: {
           css: {
-            color: theme(`colors.gray.200`),
+            color: theme(`colors.slate.200`),
             a: {
-              color: theme(`colors.yellow.300`),
-              "&:hover": { color: theme(`colors.yellow.500`) },
+              color: theme(`colors.sky.400`),
+              textDecoration: "underline",
+              textDecorationStyle: "dotted",
+              "&:hover": { color: theme(`colors.sky.300`) },
             },
-            h1: { color: theme(`colors.gray.200`) },
-            h2: { color: theme(`colors.gray.200`) },
-            h3: { color: theme(`colors.gray.200`) },
-            h4: { color: theme(`colors.gray.200`) },
-            h5: { color: theme(`colors.gray.200`) },
-            h6: { color: theme(`colors.gray.200`) },
-            strong: { color: theme(`colors.gray.200`) },
-            td: { color: theme(`colors.gray.200`) },
-            blockquote: { color: theme(`colors.gray.200`) },
+            h1: { color: theme(`colors.white`), fontFamily: theme('fontFamily.heading') },
+            h2: { color: theme(`colors.white`), fontFamily: theme('fontFamily.heading') },
+            h3: { color: theme(`colors.slate.100`), fontFamily: theme('fontFamily.heading') },
+            h4: { color: theme(`colors.slate.100`), fontFamily: theme('fontFamily.heading') },
+            h5: { color: theme(`colors.slate.100`), fontFamily: theme('fontFamily.heading') },
+            h6: { color: theme(`colors.slate.100`), fontFamily: theme('fontFamily.heading') },
+            strong: { color: theme(`colors.sky.300`) },
+            td: { color: theme(`colors.slate.200`) },
+            blockquote: {
+              color: theme(`colors.slate.200`),
+              borderLeftColor: theme(`colors.slate.700`),
+            },
             pre: {
-              backgroundColor: theme(`colors.stone.700`),
+              backgroundColor: theme(`colors.slate.800`),
             },
-            code: { color: theme(`colors.gray.200`) },
+            code: { color: theme(`colors.sky.300`) },
           },
         },
       }),

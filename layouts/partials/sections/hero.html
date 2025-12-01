@@ -1,0 +1,60 @@
+<section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div
+            class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10 text-center">
+        <div
+            class="mb-8 relative inline-block animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
+            {{ if .Site.Params.profile.photo }}
+            <div
+                class="w-40 h-40 md:w-56 md:h-56 mx-auto rounded-full p-1 bg-gradient-to-tr from-primary to-secondary group transition-all duration-500 hover:shadow-xl hover:shadow-primary/50">
+                <img src="{{ .Site.Params.profile.photo | relURL }}" alt="{{ .Site.Params.profile.name }}"
+                    class="w-full h-full object-cover rounded-full border-4 border-bg transition-transform duration-500 ease-out transform group-hover:scale-110 group-hover:rotate-3">
+            </div>
+            {{ end }}
+        </div>
+
+        <h1
+            class="text-5xl md:text-7xl font-heading font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out delay-100">
+            {{ .Site.Params.profile.name }}
+        </h1>
+
+        <p id="hero-tagline" data-text="{{ .Site.Params.profile.tagline }}"
+            class="text-xl md:text-2xl text-text-muted mb-8 font-light h-8">
+            <!-- Text will be typed here -->
+        </p>
+
+        <div
+            class="flex flex-wrap justify-center gap-4 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300">
+            <a href="#contact"
+                class="px-8 py-3 rounded-full bg-primary hover:bg-sky-500 text-white font-medium transition-all transform hover:scale-105 shadow-lg shadow-primary/25">
+                Get in Touch
+            </a>
+            <a href="#projects"
+                class="px-8 py-3 rounded-full bg-surface border border-border hover:border-primary text-text-main font-medium transition-all transform hover:scale-105">
+                View Work
+            </a>
+        </div>
+
+        <div
+            class="mt-12 flex justify-center gap-6 text-2xl text-text-muted animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out delay-500">
+            {{ range .Site.Params.social.list }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+                <i class="{{ .icon }}"></i>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#about" class="text-text-muted hover:text-primary transition-colors">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</section>

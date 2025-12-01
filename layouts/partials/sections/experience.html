@@ -1,0 +1,79 @@
+<section id="experience" class="py-20 bg-bg">
+    <div class="container mx-auto px-6">
+        <section id="experience" class="py-20 bg-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                        Experience & Education
+                    </span>
+                </h2>
+
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <!-- Experience -->
+                    <div
+                        class="relative border-l-2 border-border ml-3 md:ml-6 space-y-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                        <h3 class="text-2xl font-bold text-text-main mb-6 ml-6">
+                            <i class="{{ .Site.Params.experience.icon }} mr-2 text-primary"></i> {{
+                            .Site.Params.experience.title }}
+                        </h3>
+                        {{ range .Site.Params.experience.list }}
+                        <div class="relative ml-6 md:ml-12">
+                            <span
+                                class="absolute -left-[31px] md:-left-[55px] flex items-center justify-center w-8 h-8 bg-surface rounded-full ring-4 ring-bg">
+                                <div class="w-3 h-3 bg-primary rounded-full"></div>
+                            </span>
+                            <div
+                                class="bg-surface p-6 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                    <h4 class="text-xl font-bold text-text-main">{{ .position }}</h4>
+                                    <span
+                                        class="text-sm font-mono text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">{{
+                                        .dates }}</span>
+                                </div>
+                                <a href="{{ .url }}" target="_blank"
+                                    class="text-lg text-primary hover:underline font-medium block mb-2">{{ .company
+                                    }}</a>
+                                {{ if .details }}
+                                <div class="text-text-muted prose prose-invert max-w-none">
+                                    {{ .details | markdownify }}
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+
+                    <!-- Education -->
+                    <div
+                        class="relative border-l-2 border-border ml-3 md:ml-6 space-y-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out delay-200">
+                        <h3 class="text-2xl font-bold text-text-main mb-6 ml-6">
+                            <i class="{{ .Site.Params.education.icon }} mr-2 text-secondary"></i> {{
+                            .Site.Params.education.title }}
+                        </h3>
+                        {{ range .Site.Params.education.list }}
+                        <div class="relative ml-6 md:ml-12">
+                            <span
+                                class="absolute -left-[31px] md:-left-[55px] flex items-center justify-center w-8 h-8 bg-surface rounded-full ring-4 ring-bg">
+                                <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                            </span>
+                            <div
+                                class="bg-surface p-6 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                    <h4 class="text-xl font-bold text-text-main">{{ .degree }}</h4>
+                                    <span
+                                        class="text-sm font-mono text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">{{
+                                        .dates }}</span>
+                                </div>
+                                <p class="text-lg text-text-main font-medium mb-1">{{ .college }}</p>
+                                {{ if .thesis_title }}
+                                <p class="text-text-muted text-sm">
+                                    <span class="font-semibold">Thesis:</span> {{ .thesis_title }}
+                                </p>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>

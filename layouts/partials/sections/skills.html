@@ -1,0 +1,32 @@
+<section id="skills" class="py-20 bg-bg">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                <section id="skills" class="py-20 bg-bg">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                                {{ .Site.Params.skill.title }}
+                            </span>
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                            {{ range .Site.Params.skill.list }}
+                            <div
+                                class="bg-surface rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-border group animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3
+                                        class="text-xl font-bold text-text-main group-hover:text-primary transition-colors">
+                                        {{ .skill }}
+                                    </h3>
+                                    <span class="text-sm font-mono text-text-muted">{{ .skillrating }}%</span>
+                                </div>
+                                <div class="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden">
+                                    <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                        style="width: 0%" data-width="{{ .skillrating }}%"></div>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </section>

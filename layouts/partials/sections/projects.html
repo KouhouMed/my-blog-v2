@@ -1,0 +1,39 @@
+<section id="projects" class="py-20 bg-bg">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                <section id="projects" class="py-20 bg-bg">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                                {{ .Site.Params.project.title }}
+                            </span>
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {{ range .Site.Params.project.list }}
+                            <div
+                                class="bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-border flex flex-col h-full animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h3 class="text-xl font-bold text-text-main line-clamp-2">{{ .title }}</h3>
+                                        <a href="{{ .url }}" target="_blank"
+                                            class="text-text-muted hover:text-primary transition-colors">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-text-muted mb-4 line-clamp-4 text-sm leading-relaxed">
+                                        {{ .description }}
+                                    </p>
+                                </div>
+                                <div class="px-6 pb-6 mt-auto">
+                                    <a href="{{ .url }}" target="_blank"
+                                        class="inline-block w-full text-center py-2 rounded-lg bg-surfaceHighlight text-text-main hover:bg-primary hover:text-white transition-colors font-medium text-sm">
+                                        View Project
+                                    </a>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </section>

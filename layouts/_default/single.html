@@ -1,13 +1,23 @@
 {{ define "main" }}
-<div class="prose prose-stone dark:prose-invert max-w-none">
-<div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">{{- .Title -}}</h1>
-  <p class="mb-1">{{ .Date.Format "January 2, 2006" }}</p>
-  <p>&mdash;</p>
-</div>
-<div class="content">
-  {{ .Content }}
-</div>
-</div>
-{{ partial "prevnext" . }}
+<article class="container mx-auto px-6 py-24 max-w-4xl">
+  <div
+    class="prose prose-lg dark:prose-invert max-w-none text-text-main dark:prose-headings:text-white dark:prose-p:text-slate-200 dark:prose-strong:text-sky-300 dark:prose-li:text-slate-200 dark:prose-code:text-sky-300">
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-text-main">{{- .Title -}}</h1>
+      <div class="flex items-center gap-4 text-text-muted text-sm font-mono">
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <span>&mdash;</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+    </div>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <div class="mt-20 pt-10 border-t border-border">
+    {{ partial "prevnext" . }}
+  </div>
+</article>
 {{ end }}

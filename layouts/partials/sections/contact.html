@@ -1,0 +1,28 @@
+<section id="contact" class="py-20 bg-bg">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 text-center text-text-main">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                Get In Touch
+            </span>
+        </h2>
+
+        <p class="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
+            I'm always open to new opportunities and collaborations. Whether you have a question or just want to say hi,
+            feel free to reach out!
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 mb-12">
+            {{ range .Site.Params.social.list }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-3 px-6 py-3 bg-surface rounded-full shadow-sm hover:shadow-md transition-all border border-border group">
+                <i class="{{ .icon }} text-2xl text-text-muted group-hover:text-primary transition-colors"></i>
+                <span class="font-medium text-text-main">{{ .title }}</span>
+            </a>
+            {{ end }}
+        </div>
+
+        <div class="text-text-muted text-sm">
+            <p>&copy; {{ now.Year }} {{ .Site.Params.profile.name }}. All rights reserved.</p>
+        </div>
+    </div>
+</section>
