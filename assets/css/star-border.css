@@ -1,0 +1,38 @@
+.star-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px; /* Full rounded for buttons */
+  padding: 2px; /* Controls the border thickness */
+  background: transparent;
+  z-index: 1;
+}
+
+.star-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--star-color, white) 0deg,
+    transparent 60deg,
+    transparent 300deg,
+    var(--star-color, white) 360deg
+  );
+  animation: rotate var(--animation-speed, 4s) linear infinite;
+  z-index: -1;
+  border-radius: inherit; /* Match the parent's border-radius */
+  padding: inherit;
+  margin: -2px; /* Counteract the padding to make the border appear outside */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
