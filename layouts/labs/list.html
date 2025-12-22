@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="prose dark:prose-invert max-w-none">
+  <h1 class="standard">
+    {{- .Title -}}
+  </h1>
+  <p class="mb-8 text-lg text-text-muted">{{ .Params.description }}</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {{ range .Paginator.Pages }}
+    <div
+      class="bg-surface border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow flex flex-row h-full">
+      {{ if .Params.thumbnail }}
+      <div class="w-32 md:w-40 flex-shrink-0 overflow-hidden relative">
+        <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}"
+          class="w-full h-full object-cover absolute inset-0 transition-transform duration-300 hover:scale-105">
+      </div>
+      {{ end }}
+      <div class="p-4 flex flex-col justify-between flex-grow">
+        <div>
+          <h2 class="text-xl font-bold mb-2">
+            <a href="{{ .Permalink }}" class="hover:text-primary transition-colors">{{ .Title }}</a>
+          </h2>
+          <p class="text-text-muted mb-2 text-sm line-clamp-2">{{ .Description }}</p>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-2">
+          {{ range .Params.tags }}
+          <span class="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+<div class="my-6 flex justify-center pagination-links">
+  {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
+</div>
+{{ end }}

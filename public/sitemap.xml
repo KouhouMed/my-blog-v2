@@ -77,6 +77,21 @@
     <loc>http://localhost:1313/tags/web-app/</loc>
     <lastmod>2024-07-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/game/</loc>
+    <lastmod>2023-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2023-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/labs/</loc>
+    <lastmod>2023-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/labs/rock-paper-scissors/</loc>
+    <lastmod>2023-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/labs/guess-the-number/</loc>
+    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/blog/supervised-algos-with-r-2/</loc>
     <lastmod>2021-01-07T00:00:00+00:00</lastmod>
   </url><url>

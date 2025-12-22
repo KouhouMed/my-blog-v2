@@ -44,6 +44,20 @@
       <description>Unveiling Market Insights: My CAPM Stock Analysis App In the ever-evolving world of finance, making informed investment decisions is crucial. Today, I&amp;rsquo;m excited to share a tool I&amp;rsquo;ve developed that brings the power of the Capital Asset Pricing Model (CAPM) to your fingertips: the CAPM Stock Analysis App.&#xA;What is CAPM? Before diving into the app, let&amp;rsquo;s briefly discuss CAPM. The Capital Asset Pricing Model is a fundamental concept in modern financial theory.</description>
     </item>
     <item>
+      <title>Rock Paper Scissors</title>
+      <link>http://localhost:1313/labs/rock-paper-scissors/</link>
+      <pubDate>Sat, 28 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/labs/rock-paper-scissors/</guid>
+      <description>Challenge the computer to a game of Rock, Paper, Scissors!&#xA;✊🏽&#xD;✋🏽&#xD;✌🏽️&#xD;You chose: Computer chose: Wins: 0&#xD;Losses: 0&#xD;Ties: 0&#xD;Reset Game&#xD;</description>
+    </item>
+    <item>
+      <title>Guess the Number</title>
+      <link>http://localhost:1313/labs/guess-the-number/</link>
+      <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/labs/guess-the-number/</guid>
+      <description>This is a placeholder for a simple number guessing game.&#xA;I&#39;m thinking of a number between 1 and 100.&#xA;Guess&#xD;Reset&#xD;</description>
+    </item>
+    <item>
       <title>Supervised Learning algorithms with R (part 2)</title>
       <link>http://localhost:1313/blog/supervised-algos-with-r-2/</link>
       <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>

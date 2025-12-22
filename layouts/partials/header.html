@@ -19,6 +19,8 @@
         href="{{ if .IsHome }}#contact{{ else }}{{ " /" | absURL }}#contact{{ end }}">Contact</a>
       <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
         href="{{ `blog` | relURL }}">Blog</a>
+      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+        href="{{ `labs` | relURL }}">Labs</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -41,6 +43,7 @@
       <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#contact{{ else }}{{ " /" | absURL
         }}#contact{{ end }}" onclick="toggleMobileMenu()">Contact</a>
       <a class="text-text-muted hover:text-primary" href="{{ `blog` | relURL }}">Blog</a>
+      <a class="text-text-muted hover:text-primary" href="{{ `labs` | relURL }}">Labs</a>
     </div>
   </div>
 </header>
