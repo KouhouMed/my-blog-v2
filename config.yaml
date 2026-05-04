@@ -79,19 +79,21 @@ params:
     title: Experiences
     icon: fas fa-briefcase
     list:
-      - position: Retail Banking Data Apprenticeship
-        dates: Oct 2022 - Sept 2023
+      - position: Database Reliability Engineer
+        dates: Jan 2024 - Present
+        url: "https://atos.net/"
+        company: Atos
+        location: "Sophia Antipolis, Valbonne, France"
+      - position: Alternance Data Analysis - Retail Banking
+        dates: Oct 2022 - Nov 2023
         url: "https://www.societegenerale.com/en"
         company: Société Générale
-        #details: |1-
-        #  - Printed from desktop. Sent [emails](#).
-        #      - Called people *using* telephone.
-        #  - Drank water from office cooler.
-        #  - Ate donuts on people's birthdays.
-      - position: Data Analytics Internship
+        location: "Fontenay-sous-Bois, France"
+      - position: Stage Data Analytics
         dates: Feb 2022 - Aug 2022
         url: "https://www.ligentec.com/"
-        company: Ligentec SA 
+        company: Ligentec SA
+        location: "Corbeil-Essonnes, France"
   education:
     title: Education
     icon: fas fa-graduation-cap

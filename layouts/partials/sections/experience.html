@@ -31,8 +31,14 @@
                                         .dates }}</span>
                                 </div>
                                 <a href="{{ .url }}" target="_blank"
-                                    class="text-lg text-primary hover:underline font-medium block mb-2">{{ .company
+                                    class="text-lg text-primary hover:underline font-medium block mb-1">{{ .company
                                     }}</a>
+                                {{ if .location }}
+                                <p class="text-sm text-text-muted mb-2 flex items-center gap-1">
+                                    <i class="fas fa-map-marker-alt text-xs"></i>
+                                    {{ .location }}
+                                </p>
+                                {{ end }}
                                 {{ if .details }}
                                 <div class="text-text-muted prose prose-invert max-w-none">
                                     {{ .details | markdownify }}
