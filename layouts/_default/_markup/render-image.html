@@ -1,0 +1,9 @@
+{{/* Hugo render hook — applies loading="lazy" + decoding="async" to all
+     markdown images site-wide. Overrides the Goldmark default renderer. */}}
+<img
+  src="{{ .Destination | safeURL }}"
+  alt="{{ .Text }}"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+  loading="lazy"
+  decoding="async"
+  class="max-w-full h-auto rounded-lg">

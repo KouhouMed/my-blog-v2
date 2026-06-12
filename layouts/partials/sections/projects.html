@@ -1,39 +1,114 @@
-<section id="projects" class="py-20 bg-bg">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                <section id="projects" class="py-20 bg-bg">
-                    <div class="container mx-auto px-6">
-                        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center text-text-main">
-                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                                {{ .Site.Params.project.title }}
-                            </span>
-                        </h2>
+<section id="projects" class="py-20">
+  <div class="container mx-auto px-6">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {{ range .Site.Params.project.list }}
-                            <div
-                                class="bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-border flex flex-col h-full animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
-                                <div class="p-6 flex-grow">
-                                    <div class="flex justify-between items-start mb-4">
-                                        <h3 class="text-xl font-bold text-text-main line-clamp-2">{{ .title }}</h3>
-                                        <a href="{{ .url }}" target="_blank"
-                                            class="text-text-muted hover:text-primary transition-colors">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </a>
-                                    </div>
-                                    <p class="text-text-muted mb-4 line-clamp-4 text-sm leading-relaxed">
-                                        {{ .description }}
-                                    </p>
-                                </div>
-                                <div class="px-6 pb-6 mt-auto">
-                                    <a href="{{ .url }}" target="_blank"
-                                        class="inline-block w-full text-center py-2 rounded-lg bg-surfaceHighlight text-text-main hover:bg-primary hover:text-white transition-colors font-medium text-sm">
-                                        View Project
-                                    </a>
-                                </div>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </section>
+    <p class="text-center font-mono text-xs text-slate-400 dark:text-text-subtle mb-3 tracking-widest uppercase">
+      // 05. projects
+    </p>
+    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-14 text-center">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+        {{ .Site.Params.project.title }}
+      </span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
+      {{ range .Site.Params.project.list }}
+      {{ $hasLink := and .url (ne .url "#") }}
+      {{ $hasDemo := and .demo (ne .demo "") }}
+      {{ $hasGitHub := and .github (ne .github "") }}
+
+      <div class="group flex flex-col h-full rounded-2xl overflow-hidden animate-on-scroll
+                  bg-white dark:bg-surface
+                  border border-slate-200 dark:border-border
+                  hover:border-primary/50 dark:hover:border-primary/50
+                  dark:hover:shadow-glow-sm
+                  shadow-sm hover:shadow-lg
+                  transition-all duration-300 transform hover:-translate-y-1">
+
+        {{/* Card body */}}
+        <div class="p-6 flex-grow flex flex-col">
+
+          {{/* Header row */}}
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-sm font-bold text-slate-800 dark:text-text-main
+                       group-hover:text-primary dark:group-hover:text-primary
+                       transition-colors leading-snug">
+              {{ .title }}
+            </h3>
+            {{/* Folder icon — lights up on hover */}}
+            <i class="fas fa-folder-open text-slate-300 dark:text-border
+                      group-hover:text-primary dark:group-hover:text-primary
+                      transition-colors text-base shrink-0 mt-0.5"></i>
+          </div>
+
+          {{/* Description */}}
+          <p class="text-xs text-slate-500 dark:text-text-muted leading-relaxed flex-grow line-clamp-3 mb-4">
+            {{ .description }}
+          </p>
+
+          {{/* Tech tag chips */}}
+          {{ if .tags }}
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            {{ range .tags }}
+            <span class="font-mono text-[10px] px-2 py-0.5 rounded-full
+                         bg-primary/8 dark:bg-primary/10
+                         text-primary border border-primary/20
+                         tracking-wide">
+              {{ . }}
+            </span>
+            {{ end }}
+          </div>
+          {{ end }}
+
+        </div>
+
+        {{/* Card footer — links */}}
+        <div class="px-6 pb-5 flex items-center gap-3">
+          {{ if $hasDemo }}
+          <a href="{{ .demo }}" target="_blank" rel="noopener noreferrer"
+             class="flex-1 inline-flex items-center justify-center gap-1.5
+                    py-2 rounded-lg text-xs font-semibold
+                    bg-primary/10 dark:bg-primary/10
+                    text-primary border border-primary/30
+                    hover:bg-primary hover:text-white hover:border-primary
+                    transition-all duration-200 no-underline">
+            <i class="fas fa-external-link-alt text-[10px]"></i> Demo
+          </a>
+          {{ else if $hasLink }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+             class="flex-1 inline-flex items-center justify-center gap-1.5
+                    py-2 rounded-lg text-xs font-semibold
+                    bg-slate-100 dark:bg-surfaceHighlight
+                    text-slate-600 dark:text-text-muted border border-slate-200 dark:border-border
+                    hover:bg-primary hover:text-white hover:border-primary dark:hover:bg-primary dark:hover:text-white dark:hover:border-primary
+                    transition-all duration-200 no-underline">
+            <i class="fas fa-book-open text-[10px]"></i> Read More
+          </a>
+          {{ else }}
+          <span class="flex-1 inline-flex items-center justify-center gap-1.5
+                       py-2 rounded-lg text-xs font-semibold
+                       bg-slate-100/50 dark:bg-surfaceHighlight/30
+                       text-slate-400 dark:text-text-subtle border border-slate-200 dark:border-border/50
+                       cursor-not-allowed select-none">
+            <i class="fas fa-lock text-[10px]"></i> Private
+          </span>
+          {{ end }}
+
+          {{ if $hasGitHub }}
+          <a href="{{ .github }}" target="_blank" rel="noopener noreferrer"
+             class="w-8 h-8 flex items-center justify-center rounded-lg
+                    bg-slate-100 dark:bg-surfaceHighlight border border-slate-200 dark:border-border
+                    text-slate-500 dark:text-text-muted
+                    hover:bg-slate-800 hover:text-white hover:border-slate-800
+                    dark:hover:bg-white dark:hover:text-slate-900
+                    transition-all duration-200 no-underline shrink-0">
+            <i class="fab fa-github text-sm"></i>
+          </a>
+          {{ end }}
+        </div>
+
+      </div>
+      {{ end }}
+    </div>
+
+  </div>
+</section>

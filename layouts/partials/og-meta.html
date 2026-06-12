@@ -1,0 +1,54 @@
+{{/* ── OpenGraph & Twitter Card meta tags ───────────────────────────────────
+     Included from head.html on every page.
+     OG image: processed WebP from assets/images/profile.jpg (Hugo Pipes),
+     with a fallback to the static /profile.jpg URL.
+  ──────────────────────────────────────────────────────────────────────── */}}
+
+{{/* Resolved title & description (mirrors meta.html logic) */}}
+{{ $title := .Site.Params.title }}
+{{ if not .IsHome }}{{ $title = printf "%s | %s" .Title .Site.Params.title }}{{ end }}
+
+{{ $desc := .Site.Params.description }}
+{{ with .Description }}{{ $desc = . }}{{ end }}
+{{ if and (not .Description) .Summary }}{{ $desc = .Summary | plainify | truncate 160 }}{{ end }}
+
+{{/* OG image: try Hugo Pipes (WebP crop), fall back to static URL */}}
+{{ $ogImageURL := absURL "profile.jpg" }}
+{{ $ogImageW   := 800 }}
+{{ $ogImageH   := 800 }}
+{{ $imgRes := resources.Get "images/profile.jpg" }}
+{{ with $imgRes }}
+  {{ $processed  := .Fill "1200x628 Center WebP q88" }}
+  {{ $ogImageURL  = $processed.Permalink }}
+  {{ $ogImageW    = $processed.Width }}
+  {{ $ogImageH    = $processed.Height }}
+{{ end }}
+
+{{/* ─── OpenGraph ─────────────────────────────────────────────────────── */}}
+<meta property="og:type"        content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url"         content="{{ .Permalink }}">
+<meta property="og:site_name"   content="{{ .Site.Params.title }}">
+<meta property="og:title"       content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:image"       content="{{ $ogImageURL }}">
+<meta property="og:image:width"  content="{{ $ogImageW }}">
+<meta property="og:image:height" content="{{ $ogImageH }}">
+<meta property="og:image:alt"   content="{{ .Site.Params.profile.name }} — Portfolio">
+<meta property="og:locale"      content="{{ .Site.LanguageCode }}">
+{{ if not .IsHome }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:modified_time"  content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:author"         content="{{ .Site.Params.author }}">
+{{ with .Params.tags }}
+{{ range . }}<meta property="article:tag" content="{{ . }}">
+{{ end }}{{ end }}
+{{ end }}
+
+{{/* ─── Twitter Card ──────────────────────────────────────────────────── */}}
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:site"        content="@kouhou_mohamed">
+<meta name="twitter:creator"     content="@kouhou_mohamed">
+<meta name="twitter:title"       content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image"       content="{{ $ogImageURL }}">
+<meta name="twitter:image:alt"   content="{{ .Site.Params.profile.name }} — Portfolio">

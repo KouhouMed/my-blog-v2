@@ -1,12 +1,20 @@
-<title>{{ .Site.Params.title }}</title>
+{{/* Page-aware title: "Post Title | Site Title" for inner pages, site title for home */}}
+{{ $pageTitle := .Site.Params.title }}
+{{ if not .IsHome }}{{ $pageTitle = printf "%s | %s" .Title .Site.Params.title }}{{ end }}
+<title>{{ $pageTitle }}</title>
 
-<meta name="theme-color" content="" />
+{{/* Page-aware description: frontmatter .Description → .Summary → site default */}}
+{{ $desc := .Site.Params.description }}
+{{ with .Description }}{{ $desc = . }}{{ end }}
+{{ if and (not .Description) .Summary }}{{ $desc = .Summary | plainify | truncate 160 }}{{ end }}
+
 <meta charset="utf-8" />
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<meta name="description" content="{{ .Site.Params.description }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050d1a" />
+<meta name="description" content="{{ $desc }}" />
 <meta name="author" content="{{ .Site.Params.author }}" />
 {{- $hugoGenerator := index (findRE `content=\"(.+)\"` hugo.Generator) 0 }}
-<meta name="generator" content="aafu theme by Darshan in {{ replaceRE `content=|\"` `` $hugoGenerator }}" />
+<meta name="generator" content="{{ replaceRE `content=|\"` `` $hugoGenerator }}" />
 
 {{ if .Site.Params.favicons.use }}
 {{- $metas := .Site.Params.favicons.metas }}

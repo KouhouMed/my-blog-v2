@@ -23,7 +23,7 @@ staticDir:
 params:
   title: Mohamed Kouhou's personal website
   author: Mohamed Kouhou
-  description: Website title
+  description: "Personal portfolio of Mohamed Kouhou — Database Reliability Engineer specializing in Data Engineering, AI, and Business Intelligence."
   copyright: >-
     Powered by [Hugo](https://gohugo.io/) & deployed on
     [GitHub Pages](https://pages.github.com/)
@@ -44,7 +44,7 @@ params:
 
   profile:
     name: "Mohamed KOUHOU"
-    tagline: Database Administrator
+    tagline: "Database Reliability Engineer | Data Engineer | AI Enthusiast"
     location: "Sophia Antipolis, Côte d'Azure, France"
     photo: profile.jpg
   social:
@@ -158,44 +158,105 @@ params:
     list:
       - title: ChatSage
         url: "https://kouhoumed.com/blog/chatsage/"
-        description: ChatSage is a multi-model chatbot application that allows users to interact with various language models including GPT-3, GPT-4, Claude, and custom models.
+        demo: "https://kouhoumed.com/blog/chatsage/"
+        github: ""
+        tags: ["Python", "LLM", "Multi-Model", "NLP"]
+        description: A multi-model chatbot that lets users interact with GPT-3, GPT-4, Claude, and custom models through a unified interface.
       - title: CAPM Stock Analysis App
         url: "https://kouhoumed.com/blog/capm-analysis-app/"
-        description: This app is designed to make CAPM analysis accessible and interactive. Built with Python and Streamlit, it focuses on French stocks from the CAC 40 index, providing a user-friendly interface for investors and financial analysts.
-      - title: Connected Components Search in a Graph
+        demo: "https://kouhoumed.com/blog/capm-analysis-app/"
+        github: ""
+        tags: ["Python", "Streamlit", "Finance", "CAC 40"]
+        description: Interactive CAPM analysis tool for French stocks from the CAC 40 index, built with Python and Streamlit for investors and financial analysts.
+      - title: Real-Time Stock Analysis
+        url: "https://kouhoumed.com/blog/kafka-cassandra-rt-stock-analysis/"
+        demo: ""
+        github: ""
+        tags: ["Kafka", "Cassandra", "Spark Streaming", "Python"]
+        description: Real-time stock market data pipeline using Apache Kafka for ingestion, Spark Streaming for processing, and Cassandra for low-latency storage.
+      - title: Connected Components in Graph
         url: "#"
-        description: Implementation of the "CCF Fast and scalable connected component computation in MapReduce" algorithm with PySpark and DataBricks on GCP using Google Web Graph data.
-      - title: SSL Junior ~ Enseirb IA
+        demo: ""
+        github: ""
+        tags: ["PySpark", "GCP", "DataBricks", "MapReduce"]
+        description: Implementation of the CCF algorithm for fast, scalable connected component computation using PySpark on GCP with Google Web Graph data.
+      - title: SSL Junior — Enseirb IA
         url: "#"
-        description: Development of an AI to pilot robots for an SSL Socker Junior team for the Robocup competition. Use of DDPG (reinforcement learning) architecture and a simulator for robot training and strategy.
-      - title: Web scraping project for Avito.ma
+        demo: ""
+        github: ""
+        tags: ["Python", "Reinforcement Learning", "Robotics", "DDPG"]
+        description: AI system to pilot robots for an SSL Soccer Junior team at Robocup, using DDPG reinforcement learning and a physics simulator for training.
+      - title: Disaster Detection on Twitter
         url: "#"
-        description: Extraction of ad data from the avito.ma website with BeautifulSoup, cleaning and transformation of this data, creation of an analytical study of prices and highlighting of real estate price trends, presentation on dashboards.
-      - title: Convolutional Neural Network for Self-driving Cars
+        demo: ""
+        github: ""
+        tags: ["Python", "NLP", "Twitter API", "Sentiment Analysis"]
+        description: NLP classifier to detect whether a tweet relates to a real disaster, built with transformer-based models and Twitter API data.
+      - title: Web Scraping — Avito.ma
         url: "#"
-        description: Training a convolutional neural network to drive an autonomous car
-      - title: Disaster detection on Twitter
+        demo: ""
+        github: ""
+        tags: ["Python", "BeautifulSoup", "Power BI", "ETL"]
+        description: End-to-end scraping pipeline for Avito.ma real estate listings with automated cleaning, trend analysis, and Power BI dashboards.
+      - title: CNN for Self-Driving Cars
         url: "#"
-        description: NLP for sentiment analysis of tweets collected from a Twitter API. The aim was to detect whether a tweet was about a disaster or not.
+        demo: ""
+        github: ""
+        tags: ["CNN", "Deep Learning", "Computer Vision", "Autonomous"]
+        description: Convolutional neural network trained to drive an autonomous vehicle in a simulator, using behavioral cloning from human driving data.
   skill:
     title: Skills
     panelId: skill-panel
     icon: fas fa-cogs
     list:
+      - skill: PostgreSQL
+        skillrating: 85
+        category: "Databases & Infra"
+        icon: "fas fa-database"
+      - skill: GCP
+        skillrating: 65
+        category: "Databases & Infra"
+        icon: "fab fa-google"
+      - skill: Apache Kafka
+        skillrating: 65
+        category: "Databases & Infra"
+        icon: "fas fa-stream"
+      - skill: Docker
+        skillrating: 60
+        category: "Databases & Infra"
+        icon: "fab fa-docker"
       - skill: Python
         skillrating: 90
-      - skill: R
-        skillrating: 70
+        category: "Programming"
+        icon: "fab fa-python"
       - skill: SQL
-        skillrating: 80
+        skillrating: 85
+        category: "Programming"
+        icon: "fas fa-code"
+      - skill: PySpark
+        skillrating: 70
+        category: "Programming"
+        icon: "fas fa-bolt"
       - skill: Java
         skillrating: 60
-      - skill: PySpark 
-        skillrating: 60
-      - skill: GCP
-        skillrating: 60
+        category: "Programming"
+        icon: "fab fa-java"
+      - skill: R
+        skillrating: 70
+        category: "Programming"
+        icon: "fas fa-registered"
       - skill: Power BI
         skillrating: 80
+        category: "Data & AI"
+        icon: "fas fa-chart-bar"
+      - skill: Pandas
+        skillrating: 85
+        category: "Data & AI"
+        icon: "fas fa-table"
+      - skill: Apache Spark
+        skillrating: 70
+        category: "Data & AI"
+        icon: "fas fa-fire"
   hobby:
     title: Hobbies
     icon: fas fa-gamepad

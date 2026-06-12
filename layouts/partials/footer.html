@@ -1,7 +1,23 @@
-<footer class="py-8 bg-bg border-t border-border text-center">
+<footer class="py-8 bg-slate-50 dark:bg-bg border-t border-slate-200 dark:border-border">
   <div class="container mx-auto px-6">
-    <p class="text-text-muted text-sm">
-      {{ .Site.Params.copyright | markdownify }}
-    </p>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      <div class="font-mono text-xs text-slate-500 dark:text-text-subtle leading-relaxed">
+        <div><span class="text-terminal">$</span> <span class="text-slate-400 dark:text-text-muted">echo</span> $COPYRIGHT</div>
+        <div class="pl-3 text-slate-500 dark:text-text-subtle">{{ .Site.Params.copyright | markdownify }}</div>
+      </div>
+
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 dark:text-text-subtle">
+        <span class="inline-flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          <span class="dark:text-secondary text-emerald-600">online</span>
+        </span>
+        <span class="text-slate-300 dark:text-border">|</span>
+        <span>uptime: <span class="text-primary">∞</span></span>
+        <span class="text-slate-300 dark:text-border">|</span>
+        <span>{{ now.Year }}</span>
+      </div>
+
+    </div>
   </div>
 </footer>

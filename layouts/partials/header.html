@@ -1,56 +1,99 @@
-<header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-bg/80 backdrop-blur-md border-b border-border">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a class="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
-      href="{{ .Site.BaseURL }}">
-      {{ .Site.Params.profile.name }}
+<header id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 dark:bg-bg/80 backdrop-blur-md border-b border-slate-200 dark:border-border py-4">
+  <div class="container mx-auto px-6 flex justify-between items-center">
+
+    {{/* Logo — terminal-style prefix + gradient name */}}
+    <a href="{{ .Site.BaseURL }}" class="group flex items-center gap-2 no-underline">
+      <span class="font-mono text-terminal text-sm leading-none opacity-60 group-hover:opacity-100 transition-opacity select-none">~/</span>
+      <span class="text-xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+        {{ .Site.Params.profile.name }}
+      </span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8">
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ if .IsHome }}#about{{ else }}{{ " /" | absURL }}#about{{ end }}">About</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ if .IsHome }}#skills{{ else }}{{ " /" | absURL }}#skills{{ end }}">Skills</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ if .IsHome }}#experience{{ else }}{{ " /" | absURL }}#experience{{ end }}">Experience</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ if .IsHome }}#projects{{ else }}{{ " /" | absURL }}#projects{{ end }}">Projects</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ if .IsHome }}#contact{{ else }}{{ " /" | absURL }}#contact{{ end }}">Contact</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ `blog` | relURL }}">Blog</a>
-      <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
-        href="{{ `labs` | relURL }}">Labs</a>
+    {{/* Desktop navigation */}}
+    {{ $p := . }}
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ if $p.IsHome }}#about{{ else }}{{ "/" | absURL }}#about{{ end }}">
+        About
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ if $p.IsHome }}#skills{{ else }}{{ "/" | absURL }}#skills{{ end }}">
+        Skills
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ if $p.IsHome }}#experience{{ else }}{{ "/" | absURL }}#experience{{ end }}">
+        Experience
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ if $p.IsHome }}#projects{{ else }}{{ "/" | absURL }}#projects{{ end }}">
+        Projects
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ if $p.IsHome }}#contact{{ else }}{{ "/" | absURL }}#contact{{ end }}">
+        Contact
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ `blog` | relURL }}">
+        Blog
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a class="nav-link text-sm font-medium text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary transition-colors relative group no-underline"
+        href="{{ `labs` | relURL }}">
+        Labs
+        <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full"></span>
+      </a>
+
     </nav>
 
-    <!-- Mobile Menu Button -->
-    <button class="md:hidden text-text-muted hover:text-white focus:outline-none" onclick="toggleMobileMenu()">
-      <i class="fas fa-bars text-2xl"></i>
-    </button>
+    {{/* Mobile: hamburger only */}}
+    <div class="md:hidden flex items-center">
+      <button onclick="toggleMobileMenu()"
+        class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-surface text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-white focus:outline-none"
+        aria-label="Open menu">
+        <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-border absolute w-full left-0">
-    <div class="flex flex-col p-4 space-y-4">
-      <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#about{{ else }}{{ " /" | absURL }}#about{{
-        end }}" onclick="toggleMobileMenu()">About</a>
-      <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#skills{{ else }}{{ " /" | absURL }}#skills{{
-        end }}" onclick="toggleMobileMenu()">Skills</a>
-      <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#experience{{ else }}{{ " /" | absURL
-        }}#experience{{ end }}" onclick="toggleMobileMenu()">Experience</a>
-      <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#projects{{ else }}{{ " /" | absURL
-        }}#projects{{ end }}" onclick="toggleMobileMenu()">Projects</a>
-      <a class="text-text-muted hover:text-primary" href="{{ if .IsHome }}#contact{{ else }}{{ " /" | absURL
-        }}#contact{{ end }}" onclick="toggleMobileMenu()">Contact</a>
-      <a class="text-text-muted hover:text-primary" href="{{ `blog` | relURL }}">Blog</a>
-      <a class="text-text-muted hover:text-primary" href="{{ `labs` | relURL }}">Labs</a>
+  {{/* Mobile dropdown */}}
+  <div id="mobile-menu"
+    class="hidden md:hidden bg-white/98 dark:bg-surface/95 backdrop-blur-md border-t border-slate-200 dark:border-border">
+    <div class="container mx-auto px-6 py-5 flex flex-col gap-4">
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ if $p.IsHome }}#about{{ else }}{{ "/" | absURL }}#about{{ end }}"
+        onclick="toggleMobileMenu()">About</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ if $p.IsHome }}#skills{{ else }}{{ "/" | absURL }}#skills{{ end }}"
+        onclick="toggleMobileMenu()">Skills</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ if $p.IsHome }}#experience{{ else }}{{ "/" | absURL }}#experience{{ end }}"
+        onclick="toggleMobileMenu()">Experience</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ if $p.IsHome }}#projects{{ else }}{{ "/" | absURL }}#projects{{ end }}"
+        onclick="toggleMobileMenu()">Projects</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ if $p.IsHome }}#contact{{ else }}{{ "/" | absURL }}#contact{{ end }}"
+        onclick="toggleMobileMenu()">Contact</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ `blog` | relURL }}" onclick="toggleMobileMenu()">Blog</a>
+      <a class="text-slate-600 dark:text-text-muted hover:text-slate-900 dark:hover:text-primary py-1 font-medium transition-colors no-underline"
+        href="{{ `labs` | relURL }}" onclick="toggleMobileMenu()">Labs</a>
     </div>
   </div>
 </header>
 
 <script>
-  const toggleMobileMenu = () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  };
+  function toggleMobileMenu() {
+    var menu = document.getElementById("mobile-menu");
+    var icon = document.getElementById("mobile-menu-icon");
+    var isOpen = !menu.classList.contains("hidden");
+    menu.classList.toggle("hidden", isOpen);
+    icon.className = isOpen ? "fas fa-bars text-xl" : "fas fa-times text-xl";
+  }
 </script>
