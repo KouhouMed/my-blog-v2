@@ -23,7 +23,7 @@ staticDir:
 params:
   title: Mohamed Kouhou's personal website
   author: Mohamed Kouhou
-  description: "Personal portfolio of Mohamed Kouhou — Database Reliability Engineer specializing in Data Engineering, AI, and Business Intelligence."
+  description: "Personal portfolio of Mohamed Kouhou - Database Reliability Engineer specializing in Data Engineering, AI, and Business Intelligence."
   copyright: >-
     Powered by [Hugo](https://gohugo.io/) & deployed on
     [GitHub Pages](https://pages.github.com/)
@@ -43,10 +43,14 @@ params:
 
 
   profile:
-    name: "Mohamed KOUHOU"
+    name: "Mohamed Kouhou"
     tagline: "Database Reliability Engineer | Data Engineer | AI Enthusiast"
     location: "Sophia Antipolis, Côte d'Azure, France"
-    photo: IMG2.png
+    photo: hero-portrait.jpg
+  now:
+    role: "Database Reliability Engineer"
+    company: "Atos"
+    companyUrl: "https://atos.net/"
   social:
     title: Links
     list:
@@ -156,6 +160,20 @@ params:
     title: Projects
     icon: fas fa-project-diagram
     list:
+      - title: Real-Time E-Commerce Streaming Analytics
+        url: "https://github.com/KouhouMed/e-com-streaming-analytics"
+        demo: ""
+        github: "https://github.com/KouhouMed/e-com-streaming-analytics"
+        featured: true
+        image: "ecom-streaming-dashboard.png"
+        tags: ["Apache Kafka", "PySpark", "PostgreSQL", "Docker", "Streamlit"]
+        description: "A production-grade streaming pipeline: a Faker clickstream producer feeds Kafka, PySpark Structured Streaming computes windowed revenue and category metrics, results land in PostgreSQL, and a Streamlit dashboard reads them live. Every service runs in Docker Compose."
+      - title: "WeatherFlow: Airflow Analytics Pipeline"
+        url: "https://github.com/KouhouMed/apache-airflow-learning"
+        demo: ""
+        github: "https://github.com/KouhouMed/apache-airflow-learning"
+        tags: ["Apache Airflow", "Python", "Docker", "PostgreSQL", "Pandas"]
+        description: "An Apache Airflow 3 pipeline that ingests weather and air-quality data from Open-Meteo, enriches it with pandas, gates it behind data-quality checks, and generates daily and weekly reports. Covers sensors, TaskFlow, branching, and task groups."
       - title: ChatSage
         url: "https://kouhoumed.com/blog/chatsage/"
         demo: "https://kouhoumed.com/blog/chatsage/"
@@ -180,7 +198,7 @@ params:
         github: ""
         tags: ["PySpark", "GCP", "DataBricks", "MapReduce"]
         description: Implementation of the CCF algorithm for fast, scalable connected component computation using PySpark on GCP with Google Web Graph data.
-      - title: SSL Junior — Enseirb IA
+      - title: SSL Junior at Enseirb IA
         url: "#"
         demo: ""
         github: ""
@@ -192,7 +210,7 @@ params:
         github: ""
         tags: ["Python", "NLP", "Twitter API", "Sentiment Analysis"]
         description: NLP classifier to detect whether a tweet relates to a real disaster, built with transformer-based models and Twitter API data.
-      - title: Web Scraping — Avito.ma
+      - title: "Web Scraping: Avito.ma"
         url: "#"
         demo: ""
         github: ""
@@ -257,6 +275,10 @@ params:
         skillrating: 70
         category: "Data & AI"
         icon: "fas fa-fire"
+      - skill: Apache Airflow
+        skillrating: 65
+        category: "Data & AI"
+        icon: "fas fa-wind"
   hobby:
     title: Hobbies
     icon: fas fa-gamepad

@@ -1,26 +1,38 @@
 {{ define "main" }}
-<div class="prose dark:prose-invert max-w-none">
-  <h1 class="standard {{ if eq .Kind `term` }}font-italic{{ end }}">
-    {{ if eq .Kind "term" }}#{{ end }}{{- .Title -}}
-  </h1>
+<h1 class="font-heading text-4xl md:text-5xl font-semibold tracking-tightest text-text-main mb-10 {{ if eq .Kind `term` }}italic{{ end }}">
+  {{ if eq .Kind "term" }}#{{ end }}{{- .Title -}}
+</h1>
+
+<div>
   {{ range $key, $val := (.Paginator 10).Pages }}
-  <div class="">
+  <div>
+    {{/* The row is the `.accordion` element on purpose: accordion.js reads the
+         chevron's parentElement, then that element's nextElementSibling (the
+         panel). Keep the chevron and the panel as direct siblings of this row. */}}
     <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 {{ if eq $key 0 }}active{{ end }}">
+      class="accordion group flex items-baseline justify-between gap-6 py-5 border-t border-hairline {{ if eq $key 0 }}active{{ end }}">
       <i onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"></i>
-      <a href="{{ .Permalink | relURL }}">
-        <h2 class="accordion m-0">{{- .Title -}}</h2>
+        class="cursor-pointer chevron fas fa-chevron-right text-xs text-text-subtle group-hover:text-primary transition-colors shrink-0"></i>
+      <a href="{{ .Permalink | relURL }}"
+        class="flex-1 min-w-0 font-heading text-lg md:text-xl font-medium text-text-main no-underline hover:text-primary transition-colors">
+        {{- .Title -}}
       </a>
+      {{ if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format `2006-01-02` }}"
+        class="font-mono text-xs text-text-subtle tabular-nums shrink-0">
+        {{ .Date.Format "2006-01-02" }}
+      </time>
+      {{ end }}
     </div>
-    <div id="panel-item-{{ $key }}" class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-surface">
-      <div class="metadata p-2">{{- partial "metadata" . -}}</div>
+    <div id="panel-item-{{ $key }}" class="panel metadata-panel overflow-hidden bg-surface">
+      <div class="metadata px-4 py-3 text-sm text-text-muted">{{- partial "metadata" . -}}</div>
     </div>
   </div>
   {{ end }}
 </div>
+
 <script src="{{ `js/accordion.js` | relURL }}"></script>
-<div class="my-6 flex justify-center pagination-links">
+<div class="my-10 flex justify-center pagination-links">
   {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 </div>
 {{ end }}

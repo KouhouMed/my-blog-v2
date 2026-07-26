@@ -1,109 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Scroll Progress Bar ────────────────────────────────────────────────────
-  const progressBar = document.getElementById('scroll-progress');
-  if (progressBar) {
-    const updateProgress = () => {
-      const scrolled = window.scrollY || document.documentElement.scrollTop;
-      const total    = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
-    };
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Header state (IntersectionObserver on a top sentinel, no scroll listener) ─
+  const header   = document.getElementById('main-header');
+  const sentinel = document.getElementById('top-sentinel');
+  if (header && sentinel) {
+    const headerObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          header.classList.toggle('is-stuck', !entry.isIntersecting);
+        });
+      },
+      { root: null, threshold: 0 }
+    );
+    headerObserver.observe(sentinel);
   }
 
-  // ── Header Scroll Shrink ───────────────────────────────────────────────────
-  const header = document.getElementById('main-header');
-  if (header) {
-    const onScroll = () => {
-      const past = window.scrollY > 50;
-      header.classList.toggle('py-2', past);
-      header.classList.toggle('py-4', !past);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+  // ── Scroll-triggered reveal ────────────────────────────────────────────────
+  const revealTargets = document.querySelectorAll('.animate-on-scroll');
 
-  // ── Intersection Observer: Scroll-Triggered Reveal ────────────────────────
-  const revealObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
+  const applyStagger = el => {
+    if (!el.hasAttribute('data-stagger')) return;
+    const items = Array.from(el.children).filter(child =>
+      child.classList.contains('stagger-item')
+    );
+    items.slice(0, 6).forEach((item, i) => {
+      item.style.transitionDelay = `${i * 60}ms`;
+    });
+  };
+
+  if (reduce) {
+    revealTargets.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          applyStagger(entry.target);
           entry.target.classList.add('is-visible');
           obs.unobserve(entry.target);
-        }
-      });
-    },
-    { root: null, rootMargin: '0px', threshold: 0.1 }
-  );
-  document.querySelectorAll('.animate-on-scroll').forEach(el => revealObserver.observe(el));
+        });
+      },
+      { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.12 }
+    );
+    revealTargets.forEach(el => revealObserver.observe(el));
+  }
 
-  // ── Skill Bar Fill Animation ───────────────────────────────────────────────
-  const skillObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          bar.style.width = bar.getAttribute('data-width') || '0%';
-          obs.unobserve(bar);
-        }
-      });
-    },
-    { root: null, rootMargin: '0px', threshold: 0.1 }
-  );
-  document.querySelectorAll('.skill-bar').forEach(bar => skillObserver.observe(bar));
-
-  // ── Multi-Phrase Typing Effect ─────────────────────────────────────────────
+  // ── Multi-phrase typing effect ─────────────────────────────────────────────
   const taglineEl = document.getElementById('hero-tagline');
-  if (taglineEl) {
-    const raw     = taglineEl.getAttribute('data-text') || '';
-    const phrases = raw.split(' | ').map(s => s.trim()).filter(Boolean);
+  if (!taglineEl) return;
 
-    if (phrases.length === 0) return;
+  const textEl  = taglineEl.querySelector('.tw-text');
+  const caretEl = taglineEl.querySelector('.tw-caret');
+  if (!textEl) return;
 
-    let phraseIdx  = 0;
-    let charIdx    = 0;
-    let isDeleting = false;
+  const raw     = taglineEl.getAttribute('data-text') || '';
+  const phrases = raw.split(' | ').map(s => s.trim()).filter(Boolean);
+  if (phrases.length === 0) return;
 
-    const TYPING_MS  = 65;
-    const DELETE_MS  = 30;
-    const PAUSE_MS   = 2400;
-    const GAP_MS     = 320;
+  if (reduce) {
+    textEl.textContent = phrases[0];
+    if (caretEl) caretEl.hidden = true;
+    return;
+  }
 
-    const render = text => {
-      taglineEl.innerHTML =
-        `<span class="text-primary font-mono">${text}</span><span class="typing-cursor">▋</span>`;
-    };
+  const TYPING_MS = 65;
+  const DELETE_MS = 30;
+  const PAUSE_MS  = 2400;
+  const GAP_MS    = 320;
 
-    const tick = () => {
-      const phrase = phrases[phraseIdx];
+  let phraseIdx  = 0;
+  let charIdx    = 0;
+  let isDeleting = false;
 
-      if (!isDeleting) {
-        charIdx++;
-        render(phrase.substring(0, charIdx));
+  const tick = () => {
+    const phrase = phrases[phraseIdx];
 
-        if (charIdx === phrase.length) {
-          if (phrases.length === 1) return;                  // single phrase — stop
-          setTimeout(() => { isDeleting = true; tick(); }, PAUSE_MS);
-          return;
-        }
-      } else {
-        charIdx--;
-        render(phrase.substring(0, charIdx));
+    if (!isDeleting) {
+      charIdx++;
+      textEl.textContent = phrase.substring(0, charIdx);
 
-        if (charIdx === 0) {
-          isDeleting = false;
-          phraseIdx  = (phraseIdx + 1) % phrases.length;
-          setTimeout(tick, GAP_MS);
-          return;
-        }
+      if (charIdx === phrase.length) {
+        if (phrases.length === 1) return;              // single phrase, stop here
+        setTimeout(() => { isDeleting = true; tick(); }, PAUSE_MS);
+        return;
       }
+    } else {
+      charIdx--;
+      textEl.textContent = phrase.substring(0, charIdx);
 
-      setTimeout(tick, isDeleting ? DELETE_MS : TYPING_MS);
-    };
+      if (charIdx === 0) {
+        isDeleting = false;
+        phraseIdx  = (phraseIdx + 1) % phrases.length;
+        setTimeout(tick, GAP_MS);
+        return;
+      }
+    }
 
-    render('');
-    setTimeout(tick, 900);
+    setTimeout(tick, isDeleting ? DELETE_MS : TYPING_MS);
+  };
+
+  // Paint the first phrase in full immediately: the role line is the most
+  // important copy in the hero and must never be blank on first paint.
+  // Cycling starts from the delete step once the reading pause has elapsed.
+  textEl.textContent = phrases[0];
+  charIdx = phrases[0].length;
+
+  if (phrases.length > 1) {
+    setTimeout(() => { isDeleting = true; tick(); }, PAUSE_MS);
   }
 
 });

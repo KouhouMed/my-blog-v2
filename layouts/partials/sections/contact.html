@@ -1,28 +1,31 @@
-<section id="contact" class="py-20 bg-bg">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 text-center text-text-main">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                Get In Touch
-            </span>
-        </h2>
+<section id="contact" class="border-t border-hairline py-24 md:py-32">
+  <div class="mx-auto w-full max-w-[1200px] px-6 md:px-10">
+    <div class="animate-on-scroll">
 
-        <p class="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
-            I'm always open to new opportunities and collaborations. Whether you have a question or just want to say hi,
-            feel free to reach out!
-        </p>
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold tracking-tightest text-text-main">
+        Get in touch
+      </h2>
 
-        <div class="flex flex-wrap justify-center gap-6 mb-12">
-            {{ range .Site.Params.social.list }}
-            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-3 px-6 py-3 bg-surface rounded-full shadow-sm hover:shadow-md transition-all border border-border group">
-                <i class="{{ .icon }} text-2xl text-text-muted group-hover:text-primary transition-colors"></i>
-                <span class="font-medium text-text-main">{{ .title }}</span>
-            </a>
-            {{ end }}
-        </div>
+      <p class="mt-5 text-text-muted max-w-measure leading-relaxed">
+        Open to roles and collaborations in data engineering and database reliability. The fastest way to reach me is email.
+      </p>
 
-        <div class="text-text-muted text-sm">
-            <p>&copy; {{ now.Year }} {{ .Site.Params.profile.name }}. All rights reserved.</p>
-        </div>
+      <a href="mailto:mohamedkouhou@gmail.com"
+        class="mt-8 inline-flex items-center rounded-md px-6 py-3 text-sm whitespace-nowrap
+               bg-primary text-bg font-semibold hover:bg-primaryBright
+               active:translate-y-px transition-colors no-underline">
+        Email me
+      </a>
+
+      <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        {{ range .Site.Params.social.list }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors no-underline">
+          <i class="{{ .icon }} opacity-60"></i> {{ .title }}
+        </a>
+        {{ end }}
+      </div>
+
     </div>
+  </div>
 </section>

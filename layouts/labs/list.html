@@ -1,38 +1,44 @@
 {{ define "main" }}
-<div class="prose dark:prose-invert max-w-none">
-  <h1 class="standard">
-    {{- .Title -}}
-  </h1>
-  <p class="mb-8 text-lg text-text-muted">{{ .Params.description }}</p>
+<h1 class="font-heading text-4xl md:text-5xl font-semibold tracking-tightest text-text-main mb-4">
+  {{- .Title -}}
+</h1>
+<p class="mb-10 text-lg text-text-muted max-w-measure leading-relaxed">{{ .Params.description }}</p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {{ range .Paginator.Pages }}
-    <div
-      class="bg-surface border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow flex flex-row h-full">
-      {{ if .Params.thumbnail }}
-      <div class="w-32 md:w-40 flex-shrink-0 overflow-hidden relative">
-        <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}"
-          class="w-full h-full object-cover absolute inset-0 transition-transform duration-300 hover:scale-105">
-      </div>
-      {{ end }}
-      <div class="p-4 flex flex-col justify-between flex-grow">
-        <div>
-          <h2 class="text-xl font-bold mb-2">
-            <a href="{{ .Permalink }}" class="hover:text-primary transition-colors">{{ .Title }}</a>
-          </h2>
-          <p class="text-text-muted mb-2 text-sm line-clamp-2">{{ .Description }}</p>
-        </div>
-        <div class="flex flex-wrap gap-2 mt-2">
-          {{ range .Params.tags }}
-          <span class="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">{{ . }}</span>
-          {{ end }}
-        </div>
-      </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {{ range .Paginator.Pages }}
+  <div
+    class="group bg-surface border border-border rounded-lg overflow-hidden hover:border-primary/40 hover:shadow-lift transition-colors flex flex-row h-full">
+    {{/* Only render the media column when the thumbnail actually exists on
+         disk, otherwise the card shows a broken-image glyph. */}}
+    {{ $thumb := "" }}
+    {{ with .Params.thumbnail }}
+      {{ if fileExists (printf "static%s" .) }}{{ $thumb = . }}{{ end }}
+    {{ end }}
+    {{ with $thumb }}
+    <div class="w-32 md:w-40 flex-shrink-0 overflow-hidden relative">
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async"
+        class="w-full h-full object-cover absolute inset-0">
     </div>
     {{ end }}
+    <div class="p-5 flex flex-col justify-between flex-grow">
+      <div>
+        <h2 class="font-heading text-lg md:text-xl font-medium mb-2 mt-0">
+          <a href="{{ .Permalink }}"
+            class="text-text-main no-underline hover:text-primary transition-colors">{{ .Title }}</a>
+        </h2>
+        <p class="text-sm text-text-muted line-clamp-2">{{ .Description }}</p>
+      </div>
+      <div class="flex flex-wrap gap-x-2 gap-y-2 mt-4">
+        {{ range .Params.tags }}
+        <span class="rounded-md border border-border bg-surface px-2 py-0.5 text-[11px] text-text-main">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
   </div>
+  {{ end }}
 </div>
-<div class="my-6 flex justify-center pagination-links">
+
+<div class="my-10 flex justify-center pagination-links">
   {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 </div>
 {{ end }}

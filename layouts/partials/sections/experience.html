@@ -1,85 +1,69 @@
-<section id="experience" class="py-20">
-  <div class="container mx-auto px-6">
+<section id="experience" class="py-24 md:py-32">
+  <div class="mx-auto w-full max-w-[1200px] px-6 md:px-10">
 
-    <p class="text-center font-mono text-xs text-slate-400 dark:text-text-subtle mb-3 tracking-widest uppercase">
-      // 04. git log &#x2014;&#x2014;oneline
-    </p>
-    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-16 text-center">
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-        Experience &amp; Education
-      </span>
+    <p class="font-mono text-xs uppercase tracking-[0.16em] text-text-subtle">Experience</p>
+    <h2 class="mt-3 font-heading text-3xl md:text-4xl font-semibold tracking-tightest text-text-main">
+      Where I have worked
     </h2>
 
-    <div class="max-w-3xl mx-auto space-y-16">
+    <div class="mt-14 max-w-3xl space-y-16">
 
-      {{/* ─── Work Experience ──────────────────────────────────────────────── */}}
+      {{/* ─── Work experience ──────────────────────────────────────────────── */}}
       <div class="animate-on-scroll">
-        <h3 class="flex items-center gap-3 text-base font-bold text-slate-700 dark:text-text-muted mb-8
-                   font-mono uppercase tracking-widest">
+        <h3 class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-text-subtle mb-8">
           <i class="{{ .Site.Params.experience.icon }} text-primary"></i>
           {{ .Site.Params.experience.title }}
         </h3>
 
-        {{/* Pipeline branch line */}}
+        {{/* Vertical rail */}}
         <div class="relative pl-10">
-          <div class="absolute left-[7px] top-0 bottom-0 w-px
-                      bg-gradient-to-b from-primary/60 via-primary/30 to-transparent"></div>
+          <div class="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent"></div>
 
           <div class="space-y-6">
             {{ range .Site.Params.experience.list }}
             {{ $isCurrent := in .dates "Present" }}
             <div class="relative">
 
-              {{/* Commit node */}}
-              <div class="absolute -left-[37px] top-5 flex items-center justify-center">
-                {{ if $isCurrent }}
-                <span class="absolute w-5 h-5 rounded-full bg-primary/20 animate-ping"></span>
-                {{ end }}
-                <span class="relative z-10 w-3.5 h-3.5 rounded-full border-2
-                             {{ if $isCurrent }}border-primary bg-primary{{ else }}border-slate-400 dark:border-border bg-slate-200 dark:bg-surface{{ end }}">
-                </span>
+              {{/* Rail marker - the one permitted semantic indicator */}}
+              <div class="absolute -left-[36px] top-6 flex items-center justify-center">
+                <span class="w-2 h-2 rounded-sm {{ if $isCurrent }}bg-primary{{ else }}border border-border bg-surface{{ end }}"></span>
               </div>
 
               {{/* Card */}}
-              <div class="bg-white dark:bg-surface rounded-xl p-5
-                          border {{ if $isCurrent }}border-primary/40 dark:border-primary/40 shadow-glow-sm{{ else }}border-slate-200 dark:border-border{{ end }}
-                          hover:border-primary/40 dark:hover:border-primary/50
-                          hover:shadow-sm dark:hover:shadow-glow-sm
-                          transition-all duration-300">
+              <div class="bg-surface border border-border rounded-lg p-5 hover:border-primary/40 transition-colors">
 
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                   <div class="flex items-start gap-2">
-                    <h4 class="text-sm font-bold text-slate-800 dark:text-text-main leading-snug">
+                    <h4 class="text-sm font-semibold text-text-main leading-snug">
                       {{ .position }}
                     </h4>
                     {{ if $isCurrent }}
-                    <span class="shrink-0 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full
-                                 bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">
+                    <span class="shrink-0 border border-primary/40 text-primary bg-primary/10 rounded-md
+                                 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5">
                       current
                     </span>
                     {{ end }}
                   </div>
-                  <span class="font-mono text-xs text-slate-400 dark:text-text-subtle whitespace-nowrap shrink-0">
+                  <span class="font-mono text-xs text-text-subtle whitespace-nowrap shrink-0">
                     {{ .dates }}
                   </span>
                 </div>
 
                 <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-1.5 text-primary hover:text-sky-300
-                          font-medium text-sm mb-1 no-underline transition-colors">
+                   class="inline-flex items-center gap-1.5 text-primary hover:text-primaryBright
+                          text-sm mb-1 no-underline transition-colors">
                   {{ .company }}
                   <i class="fas fa-external-link-alt text-[10px] opacity-60"></i>
                 </a>
 
                 {{ if .location }}
-                <p class="text-xs text-slate-400 dark:text-text-muted flex items-center gap-1 mt-1">
+                <p class="text-xs text-text-muted flex items-center gap-1 mt-1">
                   <i class="fas fa-map-marker-alt text-[10px]"></i> {{ .location }}
                 </p>
                 {{ end }}
 
                 {{ if .details }}
-                <div class="mt-3 text-sm text-slate-500 dark:text-text-muted
-                            prose prose-sm dark:prose-invert max-w-none">
+                <div class="mt-3 text-sm text-text-muted prose prose-sm prose-invert max-w-none">
                   {{ .details | markdownify }}
                 </div>
                 {{ end }}
@@ -93,46 +77,41 @@
 
       {{/* ─── Education ────────────────────────────────────────────────────── */}}
       <div class="animate-on-scroll">
-        <h3 class="flex items-center gap-3 text-base font-bold text-slate-700 dark:text-text-muted mb-8
-                   font-mono uppercase tracking-widest">
-          <i class="{{ .Site.Params.education.icon }} text-secondary"></i>
+        <h3 class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-text-subtle mb-8">
+          <i class="{{ .Site.Params.education.icon }} text-primary"></i>
           {{ .Site.Params.education.title }}
         </h3>
 
-        {{/* Pipeline branch line */}}
+        {{/* Vertical rail */}}
         <div class="relative pl-10">
-          <div class="absolute left-[7px] top-0 bottom-0 w-px
-                      bg-gradient-to-b from-secondary/60 via-secondary/30 to-transparent"></div>
+          <div class="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent"></div>
 
           <div class="space-y-6">
             {{ range .Site.Params.education.list }}
             <div class="relative">
 
-              {{/* Commit node */}}
-              <div class="absolute -left-[37px] top-5 flex items-center justify-center">
-                <span class="w-3.5 h-3.5 rounded-full border-2 border-slate-400 dark:border-border bg-slate-200 dark:bg-surface"></span>
+              {{/* Rail marker - always neutral here */}}
+              <div class="absolute -left-[36px] top-6 flex items-center justify-center">
+                <span class="w-2 h-2 rounded-sm border border-border bg-surface"></span>
               </div>
 
               {{/* Card */}}
-              <div class="bg-white dark:bg-surface rounded-xl p-5
-                          border border-slate-200 dark:border-border
-                          hover:border-secondary/40 dark:hover:border-secondary/50
-                          hover:shadow-sm transition-all duration-300">
+              <div class="bg-surface border border-border rounded-lg p-5 hover:border-primary/40 transition-colors">
 
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-                  <h4 class="text-sm font-bold text-slate-800 dark:text-text-main leading-snug">
+                  <h4 class="text-sm font-semibold text-text-main leading-snug">
                     {{ .degree }}
                   </h4>
-                  <span class="font-mono text-xs text-slate-400 dark:text-text-subtle whitespace-nowrap shrink-0">
+                  <span class="font-mono text-xs text-text-subtle whitespace-nowrap shrink-0">
                     {{ .dates }}
                   </span>
                 </div>
 
-                <p class="text-sm font-medium text-secondary mb-1">{{ .college }}</p>
+                <p class="text-sm text-text-main mb-1">{{ .college }}</p>
 
                 {{ if .thesis_title }}
-                <p class="text-xs text-slate-400 dark:text-text-muted mt-1 leading-relaxed">
-                  <span class="font-semibold text-slate-500 dark:text-text-muted">Thesis:</span>
+                <p class="text-xs text-text-muted mt-1 leading-relaxed">
+                  <span class="text-text-subtle">Thesis:</span>
                   {{ .thesis_title }}
                 </p>
                 {{ end }}

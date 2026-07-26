@@ -1,0 +1,37 @@
+{{/* Keep id="skills" so existing nav anchors and inbound links keep resolving */}}
+<section id="skills" class="py-24 md:py-32">
+  <div class="mx-auto w-full max-w-[1200px] px-6 md:px-10">
+
+    <h2 class="font-heading text-3xl md:text-4xl font-semibold tracking-tightest text-text-main">
+      Stack
+    </h2>
+
+    {{ $clusters := slice
+      (dict "label" "Databases & Infra" "items" (where .Site.Params.skill.list "category" "Databases & Infra"))
+      (dict "label" "Programming"       "items" (where .Site.Params.skill.list "category" "Programming"))
+      (dict "label" "Data & AI"         "items" (where .Site.Params.skill.list "category" "Data & AI"))
+    }}
+
+    <div class="mt-12 animate-on-scroll">
+      {{ range $i, $cluster := $clusters }}
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8{{ if gt $i 0 }} border-t border-hairline{{ end }}">
+
+        <p class="md:col-span-3 font-mono text-xs uppercase tracking-[0.16em] text-text-subtle">
+          {{ $cluster.label }}
+        </p>
+
+        <div class="md:col-span-9 flex flex-wrap gap-x-2 gap-y-2">
+          {{ range $cluster.items }}
+          <span class="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-text-main hover:border-primary hover:text-primary transition-colors">
+            {{ if .icon }}<i class="{{ .icon }} opacity-50"></i>{{ end }}
+            {{ .skill }}
+          </span>
+          {{ end }}
+        </div>
+
+      </div>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
