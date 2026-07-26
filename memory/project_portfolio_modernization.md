@@ -1,27 +1,33 @@
 ---
 name: portfolio-modernization-progress
-description: Ongoing 4-phase Hugo portfolio modernization for Mohamed Kouhou's personal site at kouhoumed.com
+description: Hugo portfolio redesign for kouhoumed.com - current design system, layout structure, and hard constraints
 metadata:
   type: project
 ---
 
-Modernizing the Hugo portfolio site at kouhoumed.com. Three of four phases are complete.
+The Hugo portfolio at kouhoumed.com was fully redesigned on 2026-07-26 on branch `redesign` (cut from `experiments`, pushed to origin, not yet merged to `master`). This supersedes the earlier 4-phase modernization, whose sky/emerald/amber palette and card-heavy layouts no longer exist.
 
-**Why:** User wants a sleek "Data/Reliability Engineer" aesthetic — dark theme, terminal accents, data-focused design.
+**Design system (locked):**
+- **ONE accent: amber `#e8a33d`** (`primaryBright #f2b95c`, `primaryDim #8a6220`). The tokens `secondary`, `warning`, and `terminal` are deliberate aliases pointing at the same amber so blog/labs templates keep compiling. Do not reintroduce a second hue.
+- Base `#0b0d11`, surface `#12151b`, border `#242a35`, hairline `#1b2029`.
+- Fonts: Geist (body), Space Grotesk (display/heading), JetBrains Mono (mono).
+- Radius: `rounded-md` for controls, `rounded-lg` for cards/media. No pills, no sharp corners.
+- Page theme is **locked dark**. Home sections are written dark-only, no `dark:` pairs.
+- No glow shadows (`shadow-lift` replaced them), no gradient-text headings.
 
-**Completed phases:**
-- Phase 1: Assessment — identified aafu theme submodule (effectively unused, layouts/ fully overrides it), found broken duplicate-nested HTML in all section partials, proposed color palette (#050d1a bg, sky-400 primary, emerald-400 secondary, #4ade80 terminal green), proposed JetBrains Mono + Syne + Inter font stack.
-- Phase 2: Core setup — tailwind.config.js updated, baseof.html with scroll progress bar, toggleTheme.html (dark/light with localStorage), modernized header (underline-hover nav, moon/sun toggle), terminal aesthetic footer, multi-phrase typing animation in animations.js, fixed all broken section HTML.
-- Phase 3: Layouts — hero with terminal window card + grid bg + glow photo ring, skills badge-grid matrix grouped by category (Databases & Infra / Programming / Data & AI), experience timeline as git commit log (pulsing CURRENT badge for Atos role), project glow cards with tech tag chips + Demo/GitHub/Private state buttons, config.yaml expanded with skill categories/icons and project tags.
+**Home page = 7 partials, each a different layout family**, called from `layouts/index.html` in order: `hero`, `signal`, `about`, `stack`, `experience`, `projects`, `contact`. `skills.html` was deleted and replaced by `stack.html` (section keeps `id="skills"` for anchor/SEO stability).
 
-**Remaining:**
-- Phase 4: Image processing (WebP via resources.Get, lazy loading) and OpenGraph/Twitter card meta tags.
+**Hard constraints carried from the design skill.** Breaking any of these is a regression:
+- Zero em-dashes and en-dashes in user-visible strings.
+- Max 2 section eyebrows on the home page (currently experience + projects).
+- No section-number eyebrows, no scroll cues, no decorative status dots, no div-built fake terminals or screenshots.
+- No `window.addEventListener('scroll')`. Header state uses IntersectionObserver on `#top-sentinel`; the scroll progress bar is pure CSS `animation-timeline: scroll()`.
+- `.animate-on-scroll` is gated behind a `.js` class on `<html>` so a JS failure cannot hide the page. `prefers-reduced-motion` reveals everything instantly.
 
-**Key architecture decisions:**
-- aafu theme submodule left in place (harmless, all layouts/ override it)
-- Hugo Pipes + PostCSS (npm) kept — no change to build tooling
-- Dark mode is primary; light mode partially supported (header/footer switch, sections remain dark)
-- Skills in config.yaml now have `category` and `icon` fields used by where filter in template
-- Projects in config.yaml now have `tags`, `demo`, `github` fields
+**Config-driven fields templates depend on:** projects use `featured` (bool) and `image` (filename in `assets/images/`) for the featured block; skills use `category` + `icon`; `params.now` feeds the hero caption. Stat values in `signal.html` are computed with `len`/`sub`, never hardcoded.
 
-**How to apply:** Before suggesting further changes, check if they conflict with the current Tailwind color system (bg = #050d1a, primary = sky-400, secondary = emerald-400, terminal = #4ade80, warning = amber-400). The `where` function in Hugo templates filters skill/project lists by category/tags.
+**Gotcha:** `resources.Get` only reads `assets/`, not the `images/` staticDir. Any image needing Hugo Pipes processing must live in `assets/images/`.
+
+**Known outstanding:** `public/` is gitignored but still tracked, so it shows build churn on every commit; source-only commits are the current workaround. `images/IMG2.png` (6.2MB) is still in the repo but no longer referenced; the hero uses `assets/images/hero-portrait.jpg` instead. The profile photo carries an AI-edit sparkle watermark in its bottom-right corner.
+
+**How to apply:** Before changing home-page visuals, check the change against the constraint list above. See [[portfolio-owner-profile]] for whose site this is.
