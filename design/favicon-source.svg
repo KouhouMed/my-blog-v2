@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Favicon source of truth. Not published: Hugo only serves static/, content/
+  and processed assets/, so this directory stays out of the build.
+
+  Geometry is authored on a 64x64 grid and scales to every icon in static/:
+    tile   rounded rect, corner radius 14 (omit the radius for
+           apple-touch-icon.png, iOS applies its own corner mask)
+    letter polyline 17,46 -> 17,19 -> 32,36 -> 47,19 -> 47,46
+           stroke width 7.5, round caps and joins
+
+  Colours are the site tokens: amber #e8a33d on near-black #0b0d11.
+
+  Regenerate the PNG set and the .ico with the same geometry rather than
+  resaving by hand, so every size stays optically identical. The Safari
+  pinned-tab icon is a separate filled letterform in
+  static/safari-pinned-tab.svg, because a mask icon cannot use strokes.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#e8a33d"/>
+  <path d="M17 46V19l15 17 15-17v27"
+        fill="none" stroke="#0b0d11" stroke-width="7.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
