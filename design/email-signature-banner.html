@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Email signature banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+    Email signature banner, authored at 480x120 CSS px.
+    Export 1x by screenshotting #banner as-is; export 2x by setting
+    #banner { zoom: 2 } first. Colours are the site tokens:
+    amber #e8a33d on near-black #0b0d11.
+  */
+  :root {
+    --amber:       #e8a33d;
+    --amber-bright:#f2b95c;
+    --amber-dim:   #8a6220;
+    --bg:          #0b0d11;
+    --border:      #242a35;
+    --text:        #e6e8ec;
+    --muted:       #9aa3b2;
+    --subtle:      #6b7484;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  #banner {
+    width: 480px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: var(--bg);
+    /* Layer order top-to-bottom: flow rule, amber wash, grid, grid.
+       The rule lives in the background (not as a child) so the border
+       radius clips it reliably at every zoom level. */
+    background-image:
+      linear-gradient(90deg,
+        var(--amber-bright) 0%,
+        var(--amber) 28%,
+        rgba(232,163,61,0.42) 58%,
+        rgba(232,163,61,0) 80%),
+      radial-gradient(150px 90px at 392px 56px, rgba(232,163,61,0.11), transparent 72%),
+      linear-gradient(rgba(232,163,61,0.038) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,163,61,0.038) 1px, transparent 1px);
+    background-size: 100% 2px, auto, 24px 24px, 24px 24px;
+    background-position: left bottom, center, center, center;
+    background-repeat: no-repeat, no-repeat, repeat, repeat;
+    box-shadow: inset 0 0 0 1px var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- monogram tile ---- */
+  #tile { flex: none; display: block; }
+
+  /* ---- identity ---- */
+  #id { flex: 1 1 auto; min-width: 0; }
+
+  #name {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  #role {
+    margin-top: 8px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    white-space: nowrap;
+  }
+
+  /* Quiet supporting line: reads as texture, not as a second headline. */
+  #stack {
+    margin-top: 9px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 8.5px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--subtle);
+    white-space: nowrap;
+  }
+  #stack i { color: var(--amber-dim); font-style: normal; padding: 0 1px; }
+
+  #site {
+    margin-top: 9px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 9.5px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--subtle);
+    white-space: nowrap;
+  }
+  #site b { color: var(--muted); font-weight: 400; }
+
+  /* ---- pipeline: sources -> transform -> cloud ---- */
+  #pipe {
+    flex: none;
+    position: relative;
+    width: 150px;
+    height: 84px;
+  }
+  #edges { position: absolute; inset: 0; }
+  #pipe .ico { position: absolute; }
+
+  .db1   { left: 2px;   top: 6px;  }
+  .db2   { left: 2px;   top: 56px; }
+  .cloud { left: 112px; top: 27px; }
+
+  .node {
+    position: absolute;
+    left: 64px; top: 34px;
+    width: 15px; height: 15px;
+    background: var(--amber);
+    border-radius: 2.5px;
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body>
+
+<div id="banner">
+
+  <!-- Monogram, identical geometry to design/favicon-source.svg -->
+  <svg id="tile" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill="#e8a33d"/>
+    <path d="M17 46V19l15 17 15-17v27"
+          fill="none" stroke="#0b0d11" stroke-width="7.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+  <div id="id">
+    <div id="name">Mohamed Kouhou</div>
+    <div id="role">Database Reliability Engineer</div>
+    <div id="stack">PostgreSQL<i>/</i>Spark<i>/</i>Airflow<i>/</i>GCP</div>
+    <div id="site"><b>kouhoumed</b>.com</div>
+  </div>
+
+  <div id="pipe">
+    <svg id="edges" viewBox="0 0 150 84" fill="none" aria-hidden="true">
+      <g stroke="#e8a33d" stroke-opacity="0.38" stroke-width="1.4" stroke-linecap="round">
+        <path d="M26 20 C 44 20, 46 42, 62 42"/>
+        <path d="M26 64 C 44 64, 46 42, 62 42"/>
+        <path d="M80 42 L 112 42"/>
+      </g>
+      <g fill="#f2b95c">
+        <circle cx="44.75" cy="31" r="2"/>
+        <circle cx="44.75" cy="53" r="2"/>
+        <circle cx="96"    cy="42" r="2"/>
+      </g>
+    </svg>
+
+    <!-- source databases -->
+    <svg class="ico db1" width="22" height="22" viewBox="0 0 24 24" fill="none"
+         stroke="#e8a33d" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M21 5v14c0 1.66-4.03 3-9 3s-9-1.34-9-3V5"/>
+      <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3"/>
+    </svg>
+    <svg class="ico db2" width="22" height="22" viewBox="0 0 24 24" fill="none"
+         stroke="#e8a33d" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M21 5v14c0 1.66-4.03 3-9 3s-9-1.34-9-3V5"/>
+      <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3"/>
+    </svg>
+
+    <!-- transform node -->
+    <div class="node"></div>
+
+    <!-- cloud sink -->
+    <svg class="ico cloud" width="30" height="30" viewBox="0 0 24 24" fill="none"
+         stroke="#e8a33d" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
